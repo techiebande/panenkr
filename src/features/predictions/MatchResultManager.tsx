@@ -110,16 +110,6 @@ function MatchResultForm({ match, onUpdate }: { match: PredictionWithMatch['matc
     updateMatchResult.mutate(data);
   };
 
-  const _getStatusColor = (status: MatchStatus): string => {
-    switch (status) {
-      case "SCHEDULED": return "text-primary";
-      case "LIVE": return "text-success";
-      case "FINISHED": return "text-muted-foreground";
-      case "POSTPONED": return "text-warning";
-      case "CANCELLED": return "text-destructive";
-      default: return "text-muted-foreground";
-    }
-  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -294,23 +284,6 @@ function PredictionResultForm({ prediction, onUpdate }: { prediction: Prediction
     updatePredictionResult.mutate(data);
   };
 
-  const _getResultIcon = (result: PredictionResult | "PENDING") => {
-    switch (result) {
-      case "WON": return <CheckCircle className="h-4 w-4 text-success" />;
-      case "LOST": return <X className="h-4 w-4 text-destructive" />;
-      case "VOID": return <AlertCircle className="h-4 w-4 text-warning" />;
-      default: return <Clock className="h-4 w-4 text-muted-foreground" />;
-    }
-  };
-
-  const _getResultColor = (result: PredictionResult | "PENDING"): string => {
-    switch (result) {
-      case "WON": return "text-success";
-      case "LOST": return "text-destructive";
-      case "VOID": return "text-warning";
-      default: return "text-muted-foreground";
-    }
-  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

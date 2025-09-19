@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { inferRouterOutputs } from "@trpc/server";
 import { appRouter } from "@/lib/trpc/root";
 import Image from "next/image";
@@ -21,7 +21,7 @@ interface PredictionCardProps {
 }
 
 const PredictionCard = ({ prediction }: PredictionCardProps) => {
-  const { match, type, value, confidence, isPremium, author, slug } = prediction;
+  const { match, type, value, confidence, isPremium, slug } = prediction;
   const router = useRouter();
   const { homeTeam, awayTeam, league, kickoffAt } = match;
 

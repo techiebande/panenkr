@@ -139,7 +139,7 @@ export const articleRouter = createTRPCRouter({
 
   update: adminProcedure
     .input(updateArticleSchema)
-    .mutation(async ({ input, ctx }) => {
+    .mutation(async ({ input }) => {
       const { id, tags, ...data } = input;
       
       const existingArticle = await prisma.article.findUnique({

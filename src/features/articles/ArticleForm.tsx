@@ -189,7 +189,7 @@ export default function ArticleForm({ initialData }: ArticleFormProps) {
               <FormField
                 name="tags"
                 control={form.control}
-                render={({ field }) => (
+                render={() => (
                   <FormItem>
                     <FormLabel>Tags</FormLabel>
                     <div className="space-y-2">

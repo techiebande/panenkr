@@ -106,7 +106,7 @@ export const predictionRouter = createTRPCRouter({
 
   update: adminProcedure
     .input(updatePredictionSchema)
-    .mutation(async ({ input, ctx }) => {
+    .mutation(async ({ input }) => {
       const { id, summary, teamNewsHome, teamNewsAway, ...data } = input;
       const updatedPrediction = await prisma.prediction.update({
         where: { id },
