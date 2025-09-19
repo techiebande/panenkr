@@ -18,6 +18,7 @@ const matchWithTeamsValidator = Prisma.validator<Prisma.MatchDefaultArgs>()({
 // Explicitly use the validator to prevent "only used as type" warning
 type _MatchValidator = typeof matchWithTeamsValidator;
 // Prevent unused type warning
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _: _MatchValidator = matchWithTeamsValidator;
 
 // 2. Create an exportable type from the validator.
