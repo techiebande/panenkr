@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PublishStatus } from "@prisma/client";
+import { JsonValue } from "@prisma/client/runtime/library";
 import { toast } from "sonner";
 import { useState } from "react";
 
@@ -27,7 +28,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import TiptapEditor from "@/components/TiptapEditor";
 import {
   Select,
   SelectContent,
@@ -41,7 +42,7 @@ import { X, Plus } from "lucide-react";
 type ArticleWithDetails = {
   id: string;
   title: string;
-  content: any;
+  content: JsonValue;
   featuredImageId: string | null;
   publishStatus: PublishStatus;
   tags: Array<{ id: string; name: string; slug: string }>;
@@ -61,14 +62,14 @@ export default function ArticleForm({ initialData }: ArticleFormProps) {
     defaultValues: initialData
       ? {
           title: initialData.title,
-          content: initialData.content,
+          content: String(initialData.content || ""),
           featuredImageId: initialData.featuredImageId || undefined,
           publishStatus: initialData.publishStatus,
           tags: initialData.tags.map(tag => tag.name),
         }
       : {
           title: "",
-          content: { type: "doc", content: [] }, // Basic ProseMirror structure
+          content: "",
           featuredImageId: undefined,
           publishStatus: PublishStatus.DRAFT,
           tags: [],
@@ -170,23 +171,14 @@ export default function ArticleForm({ initialData }: ArticleFormProps) {
                   <FormItem>
                     <FormLabel>Article Content</FormLabel>
                     <FormControl>
-                      <Textarea
-                        placeholder="Write your article content here. In the future, this will be a rich text editor."
-                        className="min-h-[300px]"
-                        value={
-                          typeof field.value === "string" 
-                            ? field.value 
-                            : JSON.stringify(field.value, null, 2)
-                        }
-                        onChange={(e) => {
-                          // For now, store as simple text
-                          // In production, this would be rich JSON content
-                          field.onChange(e.target.value);
-                        }}
+                      <TiptapEditor
+                        value={(field.value as string) || ""}
+                        onChange={(html) => field.onChange(html)}
+                        placeholder="Write your article content here..."
                       />
                     </FormControl>
                     <FormDescription>
-                      Rich text editor coming soon. For now, write in plain text.
+                      Use the toolbar to format your article. Content is saved as HTML and sanitized when rendered.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>

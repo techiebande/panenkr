@@ -5,7 +5,7 @@ export const createArticleSchema = z.object({
   title: z.string().min(5, "Title must be at least 5 characters long"),
   content: z.any(), // JSON content from rich text editor
   featuredImageId: z.string().optional(),
-  publishStatus: z.nativeEnum(PublishStatus).default("DRAFT"),
+  publishStatus: z.nativeEnum(PublishStatus),
   tags: z.array(z.string()).optional(),
 });
 

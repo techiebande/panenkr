@@ -14,7 +14,6 @@ import {
   Settings,
   LogOut,
   Menu,
-  X,
   Target,
 } from "lucide-react";
 
@@ -83,8 +82,8 @@ function AdminNavigation() {
               group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors
               ${
                 isActive
-                  ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-100"
-                  : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+                  ? "bg-muted text-foreground"
+                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
               }
             `}
           >
@@ -93,8 +92,8 @@ function AdminNavigation() {
                 mr-3 h-5 w-5 flex-shrink-0
                 ${
                   isActive
-                    ? "text-gray-500 dark:text-gray-300"
-                    : "text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-300"
+                    ? "text-muted-foreground"
+                    : "text-muted-foreground group-hover:text-foreground"
                 }
               `}
             />
@@ -106,7 +105,7 @@ function AdminNavigation() {
   );
 }
 
-function UserMenu({ user }: { user: any }) {
+function UserMenu({ user }: { user: { name?: string | null; email?: string | null; image?: string | null } }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -138,7 +137,7 @@ function UserMenu({ user }: { user: any }) {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => signOut({ callbackUrl: "/" })}
-          className="text-red-600 focus:text-red-600 dark:text-red-400"
+          className="text-destructive focus:text-destructive"
         >
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
@@ -160,7 +159,7 @@ export default function AdminLayout({
   if (status === "loading") {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-foreground"></div>
       </div>
     );
   }
@@ -175,9 +174,9 @@ export default function AdminLayout({
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Access Denied</h1>
-          <p className="text-gray-600 mb-4">
-            You don't have permission to access the admin panel.
+          <h1 className="text-2xl font-bold text-foreground mb-4">Access Denied</h1>
+          <p className="text-muted-foreground mb-4">
+            You don&apos;t have permission to access the admin panel.
           </p>
           <Button onClick={() => signOut({ callbackUrl: "/" })}>
             Go back to homepage
@@ -188,7 +187,7 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-background">
       {/* Mobile sidebar */}
       <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
         <SheetContent side="left" className="p-0 w-64">
@@ -203,10 +202,10 @@ export default function AdminLayout({
         </SheetContent>
 
         {/* Desktop sidebar */}
-        <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
-          <div className="flex flex-col flex-grow border-r border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700 overflow-y-auto">
-            <div className="flex items-center flex-shrink-0 px-4 py-4 border-b border-gray-200 dark:border-gray-700">
-              <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+          <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+          <div className="flex flex-col flex-grow border-r border-border bg-background overflow-y-auto">
+            <div className="flex items-center flex-shrink-0 px-4 py-4 border-b border-border">
+              <h1 className="text-xl font-bold text-foreground">
                 Admin Panel
               </h1>
             </div>
@@ -219,12 +218,12 @@ export default function AdminLayout({
         {/* Main content */}
         <div className="md:pl-64 flex flex-col flex-1">
           {/* Top navigation */}
-          <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white dark:bg-gray-800 shadow border-b border-gray-200 dark:border-gray-700">
+          <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-background shadow border-b border-border">
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="sm" 
-                className="px-4 border-r border-gray-200 dark:border-gray-700 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
+                className="px-4 border-r border-border text-muted-foreground md:hidden"
               >
                 <span className="sr-only">Open sidebar</span>
                 <Menu className="h-6 w-6" />

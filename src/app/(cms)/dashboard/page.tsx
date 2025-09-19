@@ -11,11 +11,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import DeletePredictionAction from "@/features/predictions/DeletePredictionAction";
+import PublishPredictionAction from "@/features/predictions/PublishPredictionAction";
 import { Edit } from "lucide-react";
 
 import { appRouter } from "@/lib/trpc/root";
 import { createTRPCContext } from "@/lib/trpc/server";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Target, TrendingUp, AlertTriangle } from "lucide-react";
 
 import {
@@ -181,6 +182,10 @@ export default async function DashboardPage() {
                             <span>Edit</span>
                           </Link>
                         </DropdownMenuItem>
+                        <PublishPredictionAction
+                          predictionId={prediction.id}
+                          currentStatus={prediction.publishStatus}
+                        />
                         {/* Add our new Delete component here */}
                         <DeletePredictionAction
                           predictionId={prediction.id}

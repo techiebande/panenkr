@@ -2,6 +2,7 @@ import PredictionForm from "@/features/predictions/PredictionForm";
 import MatchResultManager from "@/features/predictions/MatchResultManager";
 import { appRouter } from "@/lib/trpc/root";
 import { createTRPCContext } from "@/lib/trpc/server";
+import { PredictionWithMatch } from "@/lib/trpc/types";
 
 type EditPredictionPageProps = {
   params: Promise<{
@@ -23,7 +24,7 @@ export default async function EditPredictionPage({
 
   return (
     <div className="space-y-8">
-      <PredictionForm initialData={prediction} />
+      <PredictionForm initialData={prediction as unknown as PredictionWithMatch} />
       <div className="p-4 sm:p-8 max-w-4xl mx-auto">
         <MatchResultManager 
           prediction={{

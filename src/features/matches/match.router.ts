@@ -3,7 +3,7 @@ import { createMatchSchema, updateMatchSchema } from "./match.schema";
 import { Prisma, MatchStatus } from "@prisma/client";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
-import { protectedProcedure, createTRPCRouter, adminProcedure } from "@/lib/trpc/server";
+import { protectedProcedure, createTRPCRouter, adminProcedure, publicProcedure } from "@/lib/trpc/server";
 
 // 1. Define a Prisma Validator to include the relations.
 // This creates a reusable definition for what a "MatchWithTeams" looks like.
@@ -82,6 +82,7 @@ export const matchRouter = createTRPCRouter({
         include: {
           homeTeam: true,
           awayTeam: true,
+          league: true,
         },
         orderBy: {
           kickoffAt: "asc",
@@ -110,5 +111,18 @@ export const matchRouter = createTRPCRouter({
     .input(z.object({ id: z.string() }))
     .mutation(async ({ input }) => {
       return prisma.match.delete({ where: { id: input.id } });
+    }),
+
+  getPublicById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(async ({ input }) => {
+      return prisma.match.findUnique({
+        where: { id: input.id },
+        include: {
+          homeTeam: true,
+          awayTeam: true,
+          league: true,
+        },
+      });
     }),
 });

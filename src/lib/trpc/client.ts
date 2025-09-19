@@ -1,5 +1,5 @@
 import { createTRPCReact } from "@trpc/react-query";
-import { type AppRouter } from "@/lib/trpc/root";
+import { type AppRouter } from "@/lib/trpc/types";
 
 /**
  * This is the tRPC client for your React components.

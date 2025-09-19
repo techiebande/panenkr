@@ -51,7 +51,7 @@ export default function DeletePredictionsAction({
     <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <AlertDialogTrigger asChild>
         <DropdownMenuItem
-          className="text-red-600 focus:text-red-600"
+          className="text-destructive focus:text-destructive"
           onSelect={(e) => e.preventDefault()} // Prevents the dropdown from closing
         >
           <Trash2 className="mr-2 h-4 w-4" />
@@ -64,7 +64,7 @@ export default function DeletePredictionsAction({
           <AlertDialogDescription>
             This action cannot be undone. This will permanently delete the
             prediction
-            <span className="font-bold"> "{predictionTitle}"</span>.
+            <span className="font-bold"> &quot;{predictionTitle}&quot;</span>.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

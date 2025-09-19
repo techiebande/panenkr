@@ -11,7 +11,6 @@ import { createTRPCRouter } from "@/lib/trpc/server";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  // We will add feature routers here, e.g., predictions: predictionRouter
   predictions: predictionRouter,
   matches: matchRouter,
   articles: articleRouter,
@@ -20,4 +19,4 @@ export const appRouter = createTRPCRouter({
 });
 
 // export type definition of API
-export type AppRouter = typeof appRouter;
+// export type AppRouter = typeof appRouter; // Moved to src/lib/trpc/types.ts

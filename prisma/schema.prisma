@@ -68,6 +68,7 @@ model User {
   image     String?
   role          UserRole  @default(USER)
   passwordHash  String?
+  isPremium     Boolean   @default(false)
   createdAt     DateTime  @default(now())
   lastSeenAt    DateTime?
   metadata      Json?
@@ -119,6 +120,7 @@ model League {
   name       String
   country    String?
   slug       String  @unique
+  logo       String?
   externalId String?
   tier       Int?
   createdAt  DateTime @default(now())
@@ -178,7 +180,11 @@ model Prediction {
   isPremium        Boolean          @default(false)
   publishStatus    PublishStatus    @default(DRAFT)
   publishedAt      DateTime?
-  content          Json          
+  content          Json
+  // New optional editorial fields for public explanation
+  summary          String?
+  teamNewsHome     String?
+  teamNewsAway     String?
   // Result tracking
   result           PredictionResult @default(PENDING)
   resultNote       String?          // Explanation of why it won/lost

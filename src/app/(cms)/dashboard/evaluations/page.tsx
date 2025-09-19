@@ -11,7 +11,6 @@ import {
   Trophy, 
   Target,
   CheckCircle,
-  XCircle 
 } from "lucide-react";
 import { format } from "date-fns";
 
@@ -28,7 +27,7 @@ export default async function EvaluationsPage() {
     return (
       <div className="p-4 sm:p-8">
         <h1 className="text-2xl font-bold">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to evaluate predictions.</p>
+        <p className="text-muted-foreground">You don&apos;t have permission to evaluate predictions.</p>
       </div>
     );
   }
@@ -45,7 +44,7 @@ export default async function EvaluationsPage() {
           <Target className="mr-2 h-6 w-6" />
           Prediction Evaluations
         </h1>
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           Review finished matches and evaluate prediction accuracy
         </p>
       </div>
@@ -68,14 +67,14 @@ export default async function EvaluationsPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Quick Actions</CardTitle>
-            <Trophy className="h-4 w-4 text-blue-600" />
+            <Trophy className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="space-y-1">
               {pendingPredictions.length > 0 ? (
-                <p className="text-sm text-blue-600">Ready to evaluate</p>
+                <p className="text-sm text-primary">Ready to evaluate</p>
               ) : (
-                <p className="text-sm text-gray-500">All caught up!</p>
+                <p className="text-sm text-muted-foreground">All caught up!</p>
               )}
             </div>
           </CardContent>
@@ -84,16 +83,16 @@ export default async function EvaluationsPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Status</CardTitle>
-            <CheckCircle className="h-4 w-4 text-green-600" />
+            <CheckCircle className="h-4 w-4 text-success" />
           </CardHeader>
           <CardContent>
             <div className="text-sm">
               {pendingPredictions.length === 0 ? (
-                <Badge variant="default" className="bg-green-100 text-green-800">
+                <Badge variant="default" className="bg-[color:var(--success-surface)] text-[color:var(--success-foreground)]">
                   All Updated
                 </Badge>
               ) : (
-                <Badge variant="secondary" className="bg-orange-100 text-orange-800">
+                <Badge variant="secondary" className="bg-[color:var(--warning-surface)] text-[color:var(--warning-foreground)]">
                   {pendingPredictions.length} Pending
                 </Badge>
               )}
@@ -115,10 +114,10 @@ export default async function EvaluationsPage() {
                       {prediction.match.homeTeam.name} vs {prediction.match.awayTeam.name}
                     </CardTitle>
                     <div className="flex items-center space-x-2">
-                      <Badge variant="outline" className="bg-gray-100">
+                      <Badge variant="outline" className="bg-muted">
                         {prediction.match.status}
                       </Badge>
-                      <Badge variant="secondary" className="bg-orange-100 text-orange-800">
+                      <Badge variant="secondary" className="bg-[color:var(--warning-surface)] text-[color:var(--warning-foreground)]">
                         <Clock className="mr-1 h-3 w-3" />
                         Pending
                       </Badge>
@@ -131,18 +130,18 @@ export default async function EvaluationsPage() {
                 <CardContent className="space-y-4">
                   {/* Match Result */}
                   {(prediction.match.scoreHome !== null && prediction.match.scoreAway !== null) && (
-                    <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="bg-muted p-4 rounded-lg">
                       <h4 className="font-medium mb-2">Match Result</h4>
                       <div className="text-2xl font-bold text-center">
                         {prediction.match.homeTeam.name} {prediction.match.scoreHome} - {prediction.match.scoreAway} {prediction.match.awayTeam.name}
                       </div>
                       {(prediction.match.htScoreHome !== null && prediction.match.htScoreAway !== null) && (
-                        <p className="text-center text-sm text-gray-600 mt-1">
+                        <p className="text-center text-sm text-muted-foreground mt-1">
                           HT: {prediction.match.htScoreHome} - {prediction.match.htScoreAway}
                         </p>
                       )}
                       {prediction.match.finishedAt && (
-                        <p className="text-center text-xs text-gray-500 mt-2">
+                        <p className="text-center text-xs text-muted-foreground mt-2">
                           Finished: {format(new Date(prediction.match.finishedAt), "MMM d, yyyy 'at' HH:mm")}
                         </p>
                       )}
@@ -156,19 +155,19 @@ export default async function EvaluationsPage() {
                     <h4 className="font-medium mb-3">Prediction to Evaluate</h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                       <div>
-                        <p className="text-gray-600">Title</p>
+                        <p className="text-muted-foreground">Title</p>
                         <p className="font-medium">{prediction.title}</p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Type</p>
+                        <p className="text-muted-foreground">Type</p>
                         <p className="font-medium">{prediction.type}</p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Predicted</p>
+                        <p className="text-muted-foreground">Predicted</p>
                         <p className="font-medium">{prediction.value}</p>
                       </div>
                       <div>
-                        <p className="text-gray-600">Confidence</p>
+                        <p className="text-muted-foreground">Confidence</p>
                         <p className="font-medium">{prediction.confidence}/10</p>
                       </div>
                     </div>
@@ -177,10 +176,10 @@ export default async function EvaluationsPage() {
                   <Separator />
 
                   {/* Actions */}
-                  <div className="flex justify-between items-center">
-                    <div className="text-sm text-gray-600">
-                      Author: {prediction.author.name || prediction.author.email}
-                    </div>
+                    <div className="flex justify-between items-center">
+                      <div className="text-sm text-muted-foreground">
+                        Author: {prediction.author.name || prediction.author.email}
+                      </div>
                     <Button asChild>
                       <Link href={`/dashboard/predictions/${prediction.id}/edit`}>
                         <Target className="mr-2 h-4 w-4" />
@@ -197,7 +196,7 @@ export default async function EvaluationsPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center">
-              <CheckCircle className="mr-2 h-5 w-5 text-green-600" />
+              <CheckCircle className="mr-2 h-5 w-5 text-success" />
               All Caught Up!
             </CardTitle>
             <CardDescription>
@@ -206,12 +205,12 @@ export default async function EvaluationsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-center py-8">
-              <Trophy className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-              <p className="text-gray-600 mb-4">
+              <Trophy className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
+                <p className="text-muted-foreground mb-4">
                 All finished matches have been evaluated. Great work keeping up with prediction accuracy tracking!
               </p>
-              <div className="text-sm text-gray-500">
-                <p>When matches finish, they'll appear here for evaluation.</p>
+              <div className="text-sm text-muted-foreground">
+                <p>When matches finish, they&apos;ll appear here for evaluation.</p>
               </div>
             </div>
           </CardContent>

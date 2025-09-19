@@ -1,6 +1,18 @@
-import { type inferRouterOutputs } from "@trpc/server";
-import { type AppRouter } from "@/lib/trpc/root";
+import { type appRouter } from "./root";
+import { type MatchWithTeams } from "@/features/matches/match.router";
+import { JsonValue } from "@prisma/client/runtime/library";
 
-type RouterOutputs = inferRouterOutputs<AppRouter>;
+export type AppRouter = typeof appRouter;
 
-export type PredictionWithMatch = RouterOutputs["predictions"]["getById"];
+// Define PredictionWithMatch type
+export type PredictionWithMatch = {
+  id: string;
+  title: string;
+  matchId: string;
+  type: string;
+  value: string;
+  confidence: number;
+  isPremium: boolean;
+  content: JsonValue;
+  match: MatchWithTeams;
+};

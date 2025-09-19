@@ -110,14 +110,14 @@ function MatchResultForm({ match, onUpdate }: { match: PredictionWithMatch['matc
     updateMatchResult.mutate(data);
   };
 
-  const getStatusColor = (status: MatchStatus) => {
+  const _getStatusColor = (status: MatchStatus): string => {
     switch (status) {
-      case "SCHEDULED": return "bg-blue-100 text-blue-800";
-      case "LIVE": return "bg-green-100 text-green-800";
-      case "FINISHED": return "bg-gray-100 text-gray-800";
-      case "POSTPONED": return "bg-yellow-100 text-yellow-800";
-      case "CANCELLED": return "bg-red-100 text-red-800";
-      default: return "bg-gray-100 text-gray-800";
+      case "SCHEDULED": return "text-primary";
+      case "LIVE": return "text-success";
+      case "FINISHED": return "text-muted-foreground";
+      case "POSTPONED": return "text-warning";
+      case "CANCELLED": return "text-destructive";
+      default: return "text-muted-foreground";
     }
   };
 
@@ -294,21 +294,21 @@ function PredictionResultForm({ prediction, onUpdate }: { prediction: Prediction
     updatePredictionResult.mutate(data);
   };
 
-  const getResultIcon = (result: PredictionResult) => {
+  const _getResultIcon = (result: PredictionResult | "PENDING") => {
     switch (result) {
-      case "WON": return <CheckCircle className="h-4 w-4 text-green-600" />;
-      case "LOST": return <X className="h-4 w-4 text-red-600" />;
-      case "VOID": return <AlertCircle className="h-4 w-4 text-yellow-600" />;
-      default: return <Clock className="h-4 w-4 text-gray-600" />;
+      case "WON": return <CheckCircle className="h-4 w-4 text-success" />;
+      case "LOST": return <X className="h-4 w-4 text-destructive" />;
+      case "VOID": return <AlertCircle className="h-4 w-4 text-warning" />;
+      default: return <Clock className="h-4 w-4 text-muted-foreground" />;
     }
   };
 
-  const getResultColor = (result: PredictionResult) => {
+  const _getResultColor = (result: PredictionResult | "PENDING"): string => {
     switch (result) {
-      case "WON": return "bg-green-100 text-green-800";
-      case "LOST": return "bg-red-100 text-red-800";
-      case "VOID": return "bg-yellow-100 text-yellow-800";
-      default: return "bg-gray-100 text-gray-800";
+      case "WON": return "text-success";
+      case "LOST": return "text-destructive";
+      case "VOID": return "text-warning";
+      default: return "text-muted-foreground";
     }
   };
 
@@ -328,9 +328,9 @@ function PredictionResultForm({ prediction, onUpdate }: { prediction: Prediction
           </DialogDescription>
         </DialogHeader>
 
-        <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+        <div className="mb-4 p-3 bg-muted rounded-lg">
           <p className="font-medium text-sm">Prediction: {prediction.title}</p>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-muted-foreground">
             Type: {prediction.type} | Value: {prediction.value} | Confidence: {prediction.confidence}/10
           </p>
         </div>
@@ -442,12 +442,12 @@ export default function MatchResultManager({ prediction, onUpdate }: MatchResult
 
   const getStatusColor = (status: MatchStatus) => {
     switch (status) {
-      case "SCHEDULED": return "bg-blue-100 text-blue-800";
-      case "LIVE": return "bg-green-100 text-green-800";
-      case "FINISHED": return "bg-gray-100 text-gray-800";
-      case "POSTPONED": return "bg-yellow-100 text-yellow-800";
-      case "CANCELLED": return "bg-red-100 text-red-800";
-      default: return "bg-gray-100 text-gray-800";
+      case "SCHEDULED": return "text-primary";
+      case "LIVE": return "text-success";
+      case "FINISHED": return "text-muted-foreground";
+      case "POSTPONED": return "text-warning";
+      case "CANCELLED": return "text-destructive";
+      default: return "text-muted-foreground";
     }
   };
 
@@ -468,7 +468,7 @@ export default function MatchResultManager({ prediction, onUpdate }: MatchResult
             <Trophy className="mr-2 h-5 w-5" />
             Match & Result Management
           </span>
-          <Badge className={getStatusColor(match.status)}>
+          <Badge variant="outline" className={getStatusColor(match.status)}>
             {match.status}
           </Badge>
         </CardTitle>
@@ -482,24 +482,24 @@ export default function MatchResultManager({ prediction, onUpdate }: MatchResult
           <h4 className="font-medium mb-3">Match Details</h4>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <p className="text-gray-600">Teams</p>
+              <p className="text-muted-foreground">Teams</p>
               <p className="font-medium">{match.homeTeam.name} vs {match.awayTeam.name}</p>
             </div>
             <div>
-              <p className="text-gray-600">Status</p>
+              <p className="text-muted-foreground">Status</p>
               <Badge className={getStatusColor(match.status)} variant="secondary">
                 {match.status}
               </Badge>
             </div>
             {(match.scoreHome !== null && match.scoreAway !== null) && (
               <div>
-                <p className="text-gray-600">Score</p>
+                <p className="text-muted-foreground">Score</p>
                 <p className="font-medium text-lg">{match.scoreHome} - {match.scoreAway}</p>
               </div>
             )}
             {(match.htScoreHome !== null && match.htScoreAway !== null) && (
               <div>
-                <p className="text-gray-600">Half-time</p>
+                <p className="text-muted-foreground">Half-time</p>
                 <p className="font-medium">HT: {match.htScoreHome} - {match.htScoreAway}</p>
               </div>
             )}
@@ -513,32 +513,32 @@ export default function MatchResultManager({ prediction, onUpdate }: MatchResult
           <h4 className="font-medium mb-3">Prediction Status</h4>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <p className="text-gray-600">Result</p>
+              <p className="text-muted-foreground">Result</p>
               <Badge className={getResultColor(prediction.result)} variant="secondary">
                 {prediction.result}
               </Badge>
             </div>
             <div>
-              <p className="text-gray-600">Predicted</p>
+              <p className="text-muted-foreground">Predicted</p>
               <p className="font-medium">{prediction.type}: {prediction.value}</p>
             </div>
             {prediction.actualOutcome && (
               <div>
-                <p className="text-gray-600">Actual Outcome</p>
+                <p className="text-muted-foreground">Actual Outcome</p>
                 <p className="font-medium">{prediction.actualOutcome}</p>
               </div>
             )}
             {prediction.evaluatedAt && (
               <div>
-                <p className="text-gray-600">Evaluated</p>
+                <p className="text-muted-foreground">Evaluated</p>
                 <p className="text-sm">{new Date(prediction.evaluatedAt).toLocaleDateString()}</p>
               </div>
             )}
           </div>
           {prediction.resultNote && (
             <div className="mt-3">
-              <p className="text-gray-600 text-sm">Evaluation Note</p>
-              <p className="text-sm bg-gray-50 p-2 rounded">{prediction.resultNote}</p>
+              <p className="text-muted-foreground text-sm">Evaluation Note</p>
+              <p className="text-sm bg-muted p-2 rounded">{prediction.resultNote}</p>
             </div>
           )}
         </div>

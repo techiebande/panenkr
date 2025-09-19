@@ -22,9 +22,9 @@ export default async function UsersPage() {
     return (
       <div className="p-4 sm:p-8">
         <div className="text-center py-12">
-          <Shield className="mx-auto h-12 w-12 text-red-400 mb-4" />
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h1>
-          <p className="text-gray-600">Only administrators can manage users.</p>
+          <Shield className="mx-auto h-12 w-12 text-destructive mb-4" />
+          <h1 className="text-2xl font-bold text-foreground mb-2">Access Denied</h1>
+          <p className="text-muted-foreground">Only administrators can manage users.</p>
         </div>
       </div>
     );
@@ -35,7 +35,7 @@ export default async function UsersPage() {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold">Users</h1>
-          <p className="text-gray-600">Manage users, roles, and permissions.</p>
+          <p className="text-muted-foreground">Manage users, roles, and permissions.</p>
         </div>
         <Button disabled>
           <UserPlus className="mr-2 h-4 w-4" />
@@ -90,15 +90,15 @@ export default async function UsersPage() {
         </CardHeader>
         <CardContent>
           <div className="text-center py-12">
-            <Users className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
+            <Users className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
+            <h3 className="text-lg font-medium text-foreground mb-2">
               User Management System
             </h3>
-            <p className="text-gray-600 mb-4 max-w-md mx-auto">
-              Here you'll be able to manage all users, assign roles, handle permissions, 
+            <p className="text-muted-foreground mb-4 max-w-md mx-auto">
+              Here you&apos;ll be able to manage all users, assign roles, handle permissions,
               and monitor user activity. This feature is under development.
             </p>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-muted-foreground">
               <p className="mb-2">Planned features:</p>
               <ul className="text-left inline-block">
                 <li>• View all registered users</li>

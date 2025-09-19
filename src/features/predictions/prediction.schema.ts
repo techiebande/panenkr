@@ -15,6 +15,9 @@ export const createPredictionSchema = z.object({
   confidence: z.number().min(1).max(10),
   isPremium: z.boolean(),
   content: z.any(),
+  summary: z.string().max(400, "Summary should be under 400 characters").optional(),
+  teamNewsHome: z.string().max(800, "Keep concise team news under 800 characters").optional(),
+  teamNewsAway: z.string().max(800, "Keep concise team news under 800 characters").optional(),
   publishStatus: z.nativeEnum(PublishStatus).optional(),
 });
 

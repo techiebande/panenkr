@@ -16,7 +16,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 import { trpc } from "@/lib/trpc/client";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 
@@ -58,7 +57,7 @@ export default function DeleteMatchAction({ matchId, matchTitle }: DeleteMatchAc
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This will permanently delete the match "{matchTitle}". This action
+            This will permanently delete the match &quot;{matchTitle}&quot;. This action
             cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>

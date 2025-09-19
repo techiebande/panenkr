@@ -115,7 +115,7 @@ export const articleRouter = createTRPCRouter({
 
   getById: adminProcedure
     .input(z.object({ id: z.string() }))
-    .query(async ({ input }) => {
+  .query(async ({ input }) => {
       const article = await prisma.article.findUnique({
         where: { id: input.id },
         include: {
@@ -299,6 +299,34 @@ export const articleRouter = createTRPCRouter({
       }
 
       return article;
+    }),
+
+    getRecent: publicProcedure
+    .input(
+      z.object({
+        limit: z.number().min(1).max(10).default(4),
+      }).optional()
+    )
+    .query(async ({ input }) => {
+      const limit = input?.limit ?? 4;
+
+      const articles = await prisma.article.findMany({
+        where: {
+          publishStatus: "PUBLISHED",
+        },
+        take: limit,
+        orderBy: {
+          publishedAt: "desc",
+        },
+        include: {
+          author: {
+            select: { name: true, image: true },
+          },
+          featuredImage: true,
+        },
+      });
+
+      return articles;
     }),
 
   // Tag management

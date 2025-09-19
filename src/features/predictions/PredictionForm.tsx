@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Prediction, PredictionType } from "@prisma/client";
+import { PredictionType } from "@prisma/client";
 import { toast } from "sonner";
 import { z } from "zod";
 import { format } from "date-fns";
@@ -20,14 +20,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import {
   Card,
   CardContent,
@@ -47,6 +39,7 @@ import {
 } from "@/components/ui/select";
 import { Combobox } from "@/components/ui/combobox";
 import { PredictionWithMatch } from "@/lib/trpc/types";
+import TiptapEditor from "@/components/TiptapEditor";
 
 type PredictionFormValues = z.infer<typeof createPredictionSchema>;
 
@@ -111,6 +104,7 @@ export default function PredictionForm({ initialData }: PredictionFormProps) {
     defaultValues: initialData
       ? {
           ...initialData,
+          content: typeof initialData.content === 'string' ? initialData.content : JSON.stringify(initialData.content || ''),
           confidence: initialData.confidence,
         }
       : {
@@ -121,6 +115,9 @@ export default function PredictionForm({ initialData }: PredictionFormProps) {
           confidence: 5,
           isPremium: false,
           content: {},
+          summary: "",
+          teamNewsHome: "",
+          teamNewsAway: "",
         },
     mode: "onChange",
   });
@@ -383,6 +380,55 @@ export default function PredictionForm({ initialData }: PredictionFormProps) {
                   </FormItem>
                 )}
               />
+
+              <FormField
+                name="summary"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Prediction Summary</FormLabel>
+                    <FormDescription>Short explanation that appears on the public page.</FormDescription>
+                    <FormControl>
+                      {/* Rich text editor (Tiptap) */}
+                      <TiptapEditor
+                        value={field.value || ""}
+                        onChange={(html) => field.onChange(html)}
+                        placeholder="Write a short summary..."
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <FormField
+                  name="teamNewsHome"
+                  control={form.control}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Home Team News</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Missing/returning players, rotation notes" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  name="teamNewsAway"
+                  control={form.control}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Away Team News</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Missing/returning players, rotation notes" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
 
               <FormField
                 name="isPremium"

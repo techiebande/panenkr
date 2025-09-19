@@ -36,7 +36,7 @@ export default async function ArticlesPage() {
     return (
       <div className="p-4 sm:p-8">
         <h1 className="text-2xl font-bold">Access Denied</h1>
-        <p className="text-gray-600">You don't have permission to manage articles.</p>
+        <p className="text-gray-600">You don&apos;t have permission to manage articles.</p>
       </div>
     );
   }
@@ -51,7 +51,7 @@ export default async function ArticlesPage() {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-bold">Articles</h1>
-          <p className="text-gray-600">Manage your articles and blog posts.</p>
+          <p className="text-muted-foreground">Manage your articles and blog posts.</p>
         </div>
         <Button asChild>
           <Link href="/dashboard/articles/new">
@@ -81,7 +81,7 @@ export default async function ArticlesPage() {
                     <div>
                       <p className="font-medium">{article.title}</p>
                       {article.publishedAt && (
-                        <p className="text-xs text-gray-500">
+                        <p className="text-xs text-muted-foreground">
                           Published {format(new Date(article.publishedAt), "MMM d, yyyy")}
                         </p>
                       )}
@@ -116,7 +116,7 @@ export default async function ArticlesPage() {
                         )}
                       </div>
                     ) : (
-                      <span className="text-gray-400">No tags</span>
+                      <span className="text-muted-foreground">No tags</span>
                     )}
                   </TableCell>
                   <TableCell>
@@ -156,7 +156,7 @@ export default async function ArticlesPage() {
               <TableRow>
                 <TableCell colSpan={6} className="text-center h-24">
                   <div className="flex flex-col items-center justify-center">
-                    <p className="text-gray-500 mb-2">No articles found.</p>
+                    <p className="text-muted-foreground mb-2">No articles found.</p>
                     <Button asChild variant="outline" size="sm">
                       <Link href="/dashboard/articles/new">
                         <Plus className="mr-2 h-4 w-4" />

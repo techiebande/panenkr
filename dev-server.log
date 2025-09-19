@@ -1,0 +1,1171 @@
+
+> panenkr@0.1.0 dev
+> next dev --turbopack --port 4000
+
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:4000
+   - Network:      http://10.253.41.188:4000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 2.9s
+ ○ Compiling / ...
+ ✓ Compiled / in 21s
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /dashboard 200 in 33350ms
+ GET / 200 in 40788ms
+ ○ Compiling /favicon.ico ...
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 19277ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 2207ms
+ ✓ Compiled /favicon.ico in 27.8s
+ GET /api/auth/session 200 in 25592ms
+ GET /api/auth/session 200 in 46691ms
+ GET /api/auth/session 200 in 573ms
+ GET /api/auth/session 200 in 450ms
+ GET /api/auth/session 200 in 495ms
+ GET /api/auth/session 200 in 533ms
+ GET /api/auth/session 200 in 1594ms
+ GET /api/auth/session 200 in 1123ms
+ GET /api/auth/session 200 in 3323ms
+ GET /api/auth/session 200 in 605ms
+ GET /api/auth/session 200 in 1049ms
+ GET /api/auth/session 200 in 763ms
+ ○ Compiling /dashboard/predictions/new ...
+ ✓ Compiled /dashboard/predictions/new in 12.3s
+ GET /dashboard/predictions/new 200 in 12670ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 8.6s
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 11619ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 2.7s
+ GET /dashboard/predictions/new 200 in 3152ms
+ GET /api/auth/session 200 in 465ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 435ms
+ GET /api/auth/session 200 in 814ms
+ GET /api/auth/session 200 in 984ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 965ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /api/auth/session 200 in 1089ms
+ GET /api/auth/session 200 in 860ms
+ GET /api/auth/session 200 in 700ms
+ GET /api/auth/session 200 in 1199ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 1484ms
+ GET /api/auth/session 200 in 1301ms
+ GET /api/auth/session 200 in 2365ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ POST /api/trpc/predictions.create?batch=1 200 in 1014ms
+ GET /dashboard 200 in 3518ms
+ GET /api/auth/session 200 in 3340ms
+ GET /dashboard 200 in 6958ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /api/auth/session 200 in 4935ms
+ GET / 200 in 11298ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 6637ms
+ GET /api/auth/session 200 in 5780ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 2570ms
+ GET /api/auth/session 200 in 2373ms
+ ○ Compiling /predictions ...
+ GET /api/auth/session 200 in 2329ms
+ GET /api/auth/session 200 in 1563ms
+ ✓ Compiled /predictions in 8.1s
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /predictions 200 in 9109ms
+ GET /api/auth/session 200 in 517ms
+ GET /api/auth/session 200 in 732ms
+ GET /api/auth/session 200 in 1186ms
+ ○ Compiling /dashboard/predictions/[predictionId]/edit ...
+ ✓ Compiled /dashboard/predictions/[predictionId]/edit in 3.4s
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /dashboard/predictions/cmfq0lccm0001vbfmc9bch3fn/edit 200 in 5703ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 517ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ ○ Compiling /dashboard/matches ...
+ ✓ Compiled /dashboard/matches in 2.2s
+ GET /dashboard/matches 200 in 2847ms
+ ○ Compiling /dashboard/matches/[matchId]/edit ...
+ ✓ Compiled /dashboard/matches/[matchId]/edit in 1878ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+Error: Route "/dashboard/matches/[matchId]/edit" used `params.matchId`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at EditMatchPage (src/app/(cms)/dashboard/matches/[matchId]/edit/page.tsx:16:65)
+  14 |   const serverContext = await createTRPCContext();
+  15 |   const serverCaller = appRouter.createCaller(serverContext);
+> 16 |   const match = await serverCaller.matches.getById({ id: params.matchId });
+     |                                                                 ^
+  17 |
+  18 |   if (!match) {
+  19 |     notFound();
+ GET /dashboard/matches/cmeyor7xx0003vbjgt77gbq1c/edit 200 in 4799ms
+ GET /api/trpc/teams.list,leagues.list,teams.listCrests?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 615ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ POST /api/trpc/matches.update?batch=1 200 in 520ms
+ GET /dashboard/matches 200 in 1155ms
+ GET /dashboard/matches 200 in 1742ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /api/auth/session 200 in 633ms
+ GET /api/auth/session 200 in 1021ms
+ GET /api/auth/session 200 in 1412ms
+ GET /predictions 200 in 4023ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 840ms
+ GET /api/auth/session 200 in 649ms
+ GET /api/auth/session 200 in 889ms
+ GET /api/auth/session 200 in 962ms
+ GET /api/auth/session 200 in 844ms
+ GET /api/auth/session 200 in 828ms
+ GET /api/auth/session 200 in 675ms
+ ○ Compiling /dashboard/predictions ...
+ ✓ Compiled /dashboard/predictions in 1963ms
+ GET /dashboard/predictions 200 in 2198ms
+ GET /dashboard 200 in 993ms
+ GET /dashboard 200 in 919ms
+ POST /api/trpc/predictions.updateStatus?batch=1 200 in 495ms
+ GET /dashboard 200 in 1152ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /api/auth/session 200 in 538ms
+ GET /api/auth/session 200 in 982ms
+ GET /api/auth/session 200 in 1549ms
+ GET /predictions 200 in 4372ms
+ ○ Compiling /_not-found/page ...
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 935ms
+ GET /api/auth/session 200 in 602ms
+ GET /api/auth/session 200 in 512ms
+ GET /api/auth/session 200 in 1411ms
+ ✓ Compiled /_not-found/page in 3.9s
+ GET /placeholder.svg 404 in 4877ms
+ GET /api/auth/session 200 in 1211ms
+ GET /api/auth/session 200 in 1693ms
+ GET /api/auth/session 200 in 2522ms
+ ✓ Compiled in 1632ms
+ ✓ Compiled in 2.9s
+ ○ Compiling /predictions ...
+ ✓ Compiled /predictions in 827ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /dashboard 200 in 5635ms
+ GET /predictions 200 in 5844ms
+ GET /dashboard 200 in 3751ms
+ GET /predictions 200 in 4000ms
+ GET /api/auth/session 200 in 2080ms
+ GET /api/auth/session 200 in 2145ms
+ GET /api/auth/session 200 in 1934ms
+ GET /predictions 200 in 5676ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 2003ms
+ GET /placeholder.svg 404 in 2202ms
+ GET /api/auth/session 200 in 2297ms
+ GET /placeholder.svg 404 in 3285ms
+ GET /api/auth/session 200 in 2867ms
+ GET /api/auth/session 200 in 939ms
+ ✓ Compiled / in 132ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET / 200 in 2157ms
+ GET /placeholder.svg 404 in 780ms
+ GET /api/auth/session 200 in 526ms
+ GET /api/auth/session 200 in 984ms
+ GET /api/auth/session 200 in 808ms
+ GET /dashboard/matches 200 in 1178ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+Error: Route "/dashboard/matches/[matchId]/edit" used `params.matchId`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at EditMatchPage (src/app/(cms)/dashboard/matches/[matchId]/edit/page.tsx:16:65)
+  14 |   const serverContext = await createTRPCContext();
+  15 |   const serverCaller = appRouter.createCaller(serverContext);
+> 16 |   const match = await serverCaller.matches.getById({ id: params.matchId });
+     |                                                                 ^
+  17 |
+  18 |   if (!match) {
+  19 |     notFound();
+ GET /dashboard/matches/cmeyor7xx0003vbjgt77gbq1c/edit 200 in 6621ms
+ GET /api/trpc/teams.list,leagues.list,teams.listCrests?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 2369ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ ✓ Compiled in 4.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 2.6s
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+Error: Route "/dashboard/matches/[matchId]/edit" used `params.matchId`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at EditMatchPage (src/app/(cms)/dashboard/matches/[matchId]/edit/page.tsx:16:65)
+  14 |   const serverContext = await createTRPCContext();
+  15 |   const serverCaller = appRouter.createCaller(serverContext);
+> 16 |   const match = await serverCaller.matches.getById({ id: params.matchId });
+     |                                                                 ^
+  17 |
+  18 |   if (!match) {
+  19 |     notFound();
+ POST /api/trpc/teams.updateCrest?batch=1 200 in 7827ms
+ GET /dashboard/matches/cmeyor7xx0003vbjgt77gbq1c/edit 200 in 9944ms
+ GET / 200 in 15744ms
+ GET /api/trpc/teams.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 7302ms
+Error: Route "/dashboard/matches/[matchId]/edit" used `params.matchId`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at EditMatchPage (src/app/(cms)/dashboard/matches/[matchId]/edit/page.tsx:16:65)
+  14 |   const serverContext = await createTRPCContext();
+  15 |   const serverCaller = appRouter.createCaller(serverContext);
+> 16 |   const match = await serverCaller.matches.getById({ id: params.matchId });
+     |                                                                 ^
+  17 |
+  18 |   if (!match) {
+  19 |     notFound();
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /dashboard/matches/cmeyor7xx0003vbjgt77gbq1c/edit 200 in 10198ms
+ POST /api/trpc/teams.updateCrest?batch=1 200 in 7598ms
+ GET / 200 in 10043ms
+ GET /api/trpc/teams.list?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D 200 in 1020ms
+ POST /api/trpc/matches.update?batch=1 200 in 703ms
+ GET /dashboard/matches 200 in 1419ms
+ GET /dashboard/matches 200 in 1664ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /api/auth/session 200 in 589ms
+ GET /api/auth/session 200 in 837ms
+ GET /api/auth/session 200 in 551ms
+ ✓ Compiled /predictions in 196ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /predictions 200 in 1663ms
+ ✓ Compiled in 8.5s
+ ○ Compiling /predictions ...
+ ✓ Compiled /predictions in 1749ms
+predictionRouter procedures: [
+  'create',
+  'list',
+  'getById',
+  'update',
+  'updateStatus',
+  'delete',
+  'updateMatchResult',
+  'updatePredictionResult',
+  'getPendingEvaluations',
+  'getAuthorStats',
+  'getPublic',
+  'getPublicByMatchId',
+  'getPublicBySlug',
+  'getHomepagePredictions'
+]
+ GET /dashboard/matches 200 in 9235ms
+ GET /predictions 200 in 10730ms
+ GET /dashboard/matches 200 in 13049ms
+ GET /predictions 200 in 13298ms
+ GET /dashboard/matches 200 in 5532ms
+ GET /predictions 200 in 6314ms
+ GET /predictions 200 in 5290ms
+ GET /dashboard/matches 200 in 4991ms
+ GET /predictions 200 in 1552ms
+ GET /dashboard/matches 200 in 1504ms
+ GET /predictions 200 in 1068ms
+ GET /dashboard/matches 200 in 1009ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:4000
+   - Network:      http://10.253.41.188:4000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 10.1s
+ ○ Compiling /api/auth/[...nextauth] ...
+ GET /api/auth/session 200 in 30777ms
+ GET /api/auth/session 200 in 925ms
+ GET /api/auth/session 200 in 800ms
+ ✓ Compiled /api/auth/[...nextauth] in 34.5s
+ GET /dashboard/predictions 200 in 32009ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 4.5s
+ GET /dashboard 200 in 5516ms
+ GET /dashboard 200 in 776ms
+ ○ Compiling /dashboard/predictions/new ...
+ ✓ Compiled /dashboard/predictions/new in 5.5s
+ GET /dashboard/predictions/new 200 in 5647ms
+ ○ Compiling /api/trpc/[trpc] ...
+ ✓ Compiled /api/trpc/[trpc] in 1318ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 3605ms
+ GET /api/auth/session 200 in 646ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 676ms
+ GET /api/auth/session 200 in 1472ms
+ GET /api/auth/session 200 in 4382ms
+ GET /dashboard/predictions/new 200 in 4711ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 1128ms
+ GET /favicon.ico 200 in 1493ms
+ GET /api/auth/session 200 in 513ms
+ GET /api/auth/session 200 in 372ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.4s
+ GET / 200 in 5323ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 2290ms
+ GET /api/auth/session 200 in 406ms
+ GET /api/auth/session 200 in 775ms
+ GET /dashboard 200 in 1268ms
+ GET /dashboard 200 in 901ms
+ GET /favicon.ico 200 in 414ms
+ GET /api/auth/session 200 in 669ms
+ GET /api/auth/session 200 in 1000ms
+ GET / 200 in 5811ms
+ GET /favicon.ico 200 in 789ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:4000
+   - Network:      http://10.253.41.188:4000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 3.9s
+ ○ Compiling / ...
+ ✓ Compiled / in 10.7s
+ GET / 200 in 14150ms
+ ○ Compiling /favicon.ico ...
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 3458ms
+ ✓ Compiled /favicon.ico in 3.8s
+ GET /api/auth/session 200 in 7634ms
+ GET /api/auth/session 200 in 379ms
+ GET /api/auth/session 200 in 384ms
+ GET /api/auth/session 200 in 399ms
+ ○ Compiling /dashboard ...
+ GET /api/auth/session 200 in 789ms
+ GET /api/auth/session 200 in 847ms
+ ✓ Compiled /dashboard in 6.7s
+ GET /dashboard 200 in 9478ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 2597ms
+ GET /api/auth/session 200 in 2416ms
+ GET /api/auth/session 200 in 1438ms
+ GET /api/auth/session 200 in 1069ms
+ ○ Compiling /dashboard/predictions/new ...
+ ✓ Compiled /dashboard/predictions/new in 9.7s
+ GET /dashboard/predictions/new 200 in 10584ms
+ ○ Compiling /api/trpc/[trpc] ...
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1952ms
+ ✓ Compiled /api/trpc/[trpc] in 6.4s
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 9283ms
+ GET /api/auth/session 200 in 523ms
+ GET /api/auth/session 200 in 466ms
+ GET /api/auth/session 200 in 704ms
+ GET /api/auth/session 200 in 1459ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 1581ms
+ GET /api/auth/session 200 in 804ms
+ GET /api/auth/session 200 in 550ms
+ ✓ Compiled in 3.2s
+ ✓ Compiled in 1666ms
+ ✓ Compiled in 2.5s
+ GET /api/auth/session 200 in 3879ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 3878ms
+ GET /api/auth/session 200 in 1757ms
+ GET /api/auth/session 200 in 1163ms
+ ✓ Compiled in 5.7s
+ GET /api/auth/session 200 in 2194ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 2238ms
+ GET /api/auth/session 200 in 1702ms
+ GET /api/auth/session 200 in 1073ms
+ GET /dashboard/predictions/new 200 in 3547ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 2302ms
+ GET /api/auth/session 200 in 2366ms
+ GET /api/auth/session 200 in 1142ms
+ GET /api/auth/session 200 in 696ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 1000ms
+ GET /api/auth/session 200 in 3064ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 3076ms
+ GET /api/auth/session 200 in 2270ms
+ GET /api/auth/session 200 in 1413ms
+ GET /api/auth/session 200 in 937ms
+ GET /api/auth/session 200 in 934ms
+ GET /api/auth/session 200 in 1696ms
+ ✓ Compiled in 4.1s
+ ✓ Compiled /dashboard/predictions/new in 276ms
+ GET /dashboard/predictions/new 200 in 3069ms
+ GET / 200 in 3466ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 1498ms
+ GET /api/auth/session 200 in 1513ms
+ GET /api/auth/session 200 in 1053ms
+ GET /dashboard/predictions/new 200 in 8289ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 425ms
+ GET /api/auth/session 200 in 1225ms
+ GET /api/auth/session 200 in 967ms
+ GET /api/auth/session 200 in 921ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 864ms
+ ⨯ ./node_modules/react-quill/lib/index.js:43:31
+Module not found: Can't resolve 'quill'
+[0m [90m 41 |[39m [36mvar[39m react_dom_1 [33m=[39m __importDefault(require([32m"react-dom"[39m))[33m;[39m
+ [90m 42 |[39m [36mvar[39m isEqual_1 [33m=[39m __importDefault(require([32m"lodash/isEqual"[39m))[33m;[39m
+[31m[1m>[22m[39m[90m 43 |[39m [36mvar[39m quill_1 [33m=[39m __importDefault(require([32m"quill"[39m))[33m;[39m
+ [90m    |[39m                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 44 |[39m [36mvar[39m [33mReactQuill[39m [33m=[39m [90m/** @class */[39m ([36mfunction[39m (_super) {
+ [90m 45 |[39m     __extends([33mReactQuill[39m[33m,[39m _super)[33m;[39m
+ [90m 46 |[39m     [36mfunction[39m [33mReactQuill[39m(props) {[0m
+
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/react-quill/lib/index.js [Client Component Browser]
+    ./src/components/RichTextEditor.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/predictions/new/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./node_modules/react-quill/lib/index.js:43:31
+Module not found: Can't resolve 'quill'
+[0m [90m 41 |[39m [36mvar[39m react_dom_1 [33m=[39m __importDefault(require([32m"react-dom"[39m))[33m;[39m
+ [90m 42 |[39m [36mvar[39m isEqual_1 [33m=[39m __importDefault(require([32m"lodash/isEqual"[39m))[33m;[39m
+[31m[1m>[22m[39m[90m 43 |[39m [36mvar[39m quill_1 [33m=[39m __importDefault(require([32m"quill"[39m))[33m;[39m
+ [90m    |[39m                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 44 |[39m [36mvar[39m [33mReactQuill[39m [33m=[39m [90m/** @class */[39m ([36mfunction[39m (_super) {
+ [90m 45 |[39m     __extends([33mReactQuill[39m[33m,[39m _super)[33m;[39m
+ [90m 46 |[39m     [36mfunction[39m [33mReactQuill[39m(props) {[0m
+
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/react-quill/lib/index.js [Client Component Browser]
+    ./src/components/RichTextEditor.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/predictions/new/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./node_modules/react-quill/lib/index.js:43:31
+Module not found: Can't resolve 'quill'
+[0m [90m 41 |[39m [36mvar[39m react_dom_1 [33m=[39m __importDefault(require([32m"react-dom"[39m))[33m;[39m
+ [90m 42 |[39m [36mvar[39m isEqual_1 [33m=[39m __importDefault(require([32m"lodash/isEqual"[39m))[33m;[39m
+[31m[1m>[22m[39m[90m 43 |[39m [36mvar[39m quill_1 [33m=[39m __importDefault(require([32m"quill"[39m))[33m;[39m
+ [90m    |[39m                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 44 |[39m [36mvar[39m [33mReactQuill[39m [33m=[39m [90m/** @class */[39m ([36mfunction[39m (_super) {
+ [90m 45 |[39m     __extends([33mReactQuill[39m[33m,[39m _super)[33m;[39m
+ [90m 46 |[39m     [36mfunction[39m [33mReactQuill[39m(props) {[0m
+
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/react-quill/lib/index.js [Client Component Browser]
+    ./src/components/RichTextEditor.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/predictions/new/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./node_modules/react-quill/lib/index.js:43:31
+Module not found: Can't resolve 'quill'
+[0m [90m 41 |[39m [36mvar[39m react_dom_1 [33m=[39m __importDefault(require([32m"react-dom"[39m))[33m;[39m
+ [90m 42 |[39m [36mvar[39m isEqual_1 [33m=[39m __importDefault(require([32m"lodash/isEqual"[39m))[33m;[39m
+[31m[1m>[22m[39m[90m 43 |[39m [36mvar[39m quill_1 [33m=[39m __importDefault(require([32m"quill"[39m))[33m;[39m
+ [90m    |[39m                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 44 |[39m [36mvar[39m [33mReactQuill[39m [33m=[39m [90m/** @class */[39m ([36mfunction[39m (_super) {
+ [90m 45 |[39m     __extends([33mReactQuill[39m[33m,[39m _super)[33m;[39m
+ [90m 46 |[39m     [36mfunction[39m [33mReactQuill[39m(props) {[0m
+
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/react-quill/lib/index.js [Client Component Browser]
+    ./src/components/RichTextEditor.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/predictions/new/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ⨯ ./node_modules/react-quill/lib/index.js:43:31
+Module not found: Can't resolve 'quill'
+[0m [90m 41 |[39m [36mvar[39m react_dom_1 [33m=[39m __importDefault(require([32m"react-dom"[39m))[33m;[39m
+ [90m 42 |[39m [36mvar[39m isEqual_1 [33m=[39m __importDefault(require([32m"lodash/isEqual"[39m))[33m;[39m
+[31m[1m>[22m[39m[90m 43 |[39m [36mvar[39m quill_1 [33m=[39m __importDefault(require([32m"quill"[39m))[33m;[39m
+ [90m    |[39m                               [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 44 |[39m [36mvar[39m [33mReactQuill[39m [33m=[39m [90m/** @class */[39m ([36mfunction[39m (_super) {
+ [90m 45 |[39m     __extends([33mReactQuill[39m[33m,[39m _super)[33m;[39m
+ [90m 46 |[39m     [36mfunction[39m [33mReactQuill[39m(props) {[0m
+
+
+
+Import trace:
+  Client Component Browser:
+    ./node_modules/react-quill/lib/index.js [Client Component Browser]
+    ./src/components/RichTextEditor.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Client Component Browser]
+    ./src/features/predictions/PredictionForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/predictions/new/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ○ Compiling /dashboard/predictions/new ...
+ ✓ Compiled /dashboard/predictions/new in 962ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /dashboard/predictions/new 200 in 1783ms
+ GET / 200 in 8119ms
+ GET /dashboard/predictions/new 200 in 6212ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1807ms
+ GET /api/auth/session 200 in 1630ms
+ GET /api/auth/session 200 in 1920ms
+ GET /api/auth/session 200 in 1399ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 1849ms
+ ○ Compiling /dashboard/predictions/new ...
+ GET / 200 in 1145ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 7.4s
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /dashboard/predictions/new in 1838ms
+ GET /dashboard/predictions/new 200 in 2687ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 750ms
+ GET /api/auth/session 200 in 754ms
+ GET /api/auth/session 200 in 594ms
+ GET /api/auth/session 200 in 736ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 631ms
+ GET /api/auth/session 200 in 728ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 834ms
+ GET /api/auth/session 200 in 1004ms
+ GET /api/auth/session 200 in 1335ms
+ GET /dashboard/predictions/new 200 in 2662ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 2435ms
+ GET /api/auth/session 200 in 2067ms
+ GET /api/auth/session 200 in 1582ms
+ GET /api/auth/session 200 in 618ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 594ms
+ GET /api/auth/session 200 in 703ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 735ms
+ GET /api/auth/session 200 in 593ms
+ GET /api/auth/session 200 in 472ms
+ ✓ Compiled in 2.1s
+ GET /dashboard/predictions/new 200 in 5678ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 723ms
+ GET /api/auth/session 200 in 776ms
+ GET /api/auth/session 200 in 665ms
+ GET /api/auth/session 200 in 449ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 420ms
+ GET /api/auth/session 200 in 2212ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 2931ms
+ GET /api/auth/session 200 in 2455ms
+ GET /api/auth/session 200 in 760ms
+ GET /api/auth/session 200 in 1139ms
+ GET /api/auth/session 200 in 970ms
+ GET /api/auth/session 200 in 670ms
+ ✓ Compiled in 1829ms
+ ✓ Compiled in 4.6s
+ GET /api/auth/session 200 in 1986ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 2134ms
+ GET /api/auth/session 200 in 593ms
+ GET /api/auth/session 200 in 1025ms
+ GET /api/auth/session 200 in 681ms
+ GET /api/auth/session 200 in 1254ms
+ GET /api/auth/session 200 in 4720ms
+ GET /api/auth/session 200 in 1370ms
+ GET /api/auth/session 200 in 1205ms
+ GET /api/auth/session 200 in 819ms
+ ○ Compiling /articles ...
+ GET /api/auth/session 200 in 1837ms
+ GET /api/trpc/matches.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22query%22%3A%22%22%7D%7D%7D 200 in 1941ms
+ GET /api/auth/session 200 in 711ms
+ GET /api/auth/session 200 in 1131ms
+ ✓ Compiled /articles in 14.4s
+Error: Route "/articles" used `searchParams.cursor`. `searchParams` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at ArticlesPage (src/app/(app)/(public)/articles/page.tsx:53:13)
+  51 |
+  52 | export default async function ArticlesPage({ searchParams }: { searchParams: { cursor?: string } }) {
+> 53 |     const { cursor } = searchParams;
+     |             ^
+  54 |     const context = await createTRPCContext();
+  55 |     const caller = appRouter.createCaller(context);
+  56 |     const { nextCursor } = await caller.articles.getPublished({ limit: ARTICLES_PER_PAGE, cursor });
+ GET /articles 200 in 17856ms
+ GET /dashboard/articles 200 in 15576ms
+ ○ Compiling /dashboard/articles/new ...
+ ✓ Compiled /dashboard/articles/new in 3.5s
+ GET /dashboard/articles/new 200 in 4030ms
+ ✓ Compiled in 1452ms
+Error: Route "/articles" used `searchParams.cursor`. `searchParams` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at ArticlesPage (src/app/(app)/(public)/articles/page.tsx:53:13)
+  51 |
+  52 | export default async function ArticlesPage({ searchParams }: { searchParams: { cursor?: string } }) {
+> 53 |     const { cursor } = searchParams;
+     |             ^
+  54 |     const context = await createTRPCContext();
+  55 |     const caller = appRouter.createCaller(context);
+  56 |     const { nextCursor } = await caller.articles.getPublished({ limit: ARTICLES_PER_PAGE, cursor });
+ GET /dashboard/articles/new 200 in 2482ms
+ GET /articles 200 in 2543ms
+ ✓ Compiled in 2s
+ ✓ Compiled in 2.1s
+Error: Route "/articles" used `searchParams.cursor`. `searchParams` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at ArticlesPage (src/app/(app)/(public)/articles/page.tsx:53:13)
+  51 |
+  52 | export default async function ArticlesPage({ searchParams }: { searchParams: { cursor?: string } }) {
+> 53 |     const { cursor } = searchParams;
+     |             ^
+  54 |     const context = await createTRPCContext();
+  55 |     const caller = appRouter.createCaller(context);
+  56 |     const { nextCursor } = await caller.articles.getPublished({ limit: ARTICLES_PER_PAGE, cursor });
+ GET /articles 200 in 3068ms
+ GET /dashboard/articles/new 200 in 3162ms
+Error: Route "/articles" used `searchParams.cursor`. `searchParams` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at ArticlesPage (src/app/(app)/(public)/articles/page.tsx:53:13)
+  51 |
+  52 | export default async function ArticlesPage({ searchParams }: { searchParams: { cursor?: string } }) {
+> 53 |     const { cursor } = searchParams;
+     |             ^
+  54 |     const context = await createTRPCContext();
+  55 |     const caller = appRouter.createCaller(context);
+  56 |     const { nextCursor } = await caller.articles.getPublished({ limit: ARTICLES_PER_PAGE, cursor });
+ GET /dashboard/articles/new 200 in 2531ms
+ GET /articles 200 in 2623ms
+Error: Route "/articles" used `searchParams.cursor`. `searchParams` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at ArticlesPage (src/app/(app)/(public)/articles/page.tsx:53:13)
+  51 |
+  52 | export default async function ArticlesPage({ searchParams }: { searchParams: { cursor?: string } }) {
+> 53 |     const { cursor } = searchParams;
+     |             ^
+  54 |     const context = await createTRPCContext();
+  55 |     const caller = appRouter.createCaller(context);
+  56 |     const { nextCursor } = await caller.articles.getPublished({ limit: ARTICLES_PER_PAGE, cursor });
+ GET /dashboard/articles/new 200 in 859ms
+ GET /articles 200 in 871ms
+ ✓ Compiled in 827ms
+ GET /api/auth/session 200 in 3600ms
+ GET /api/auth/session 200 in 2128ms
+ ⨯ ./src/components/TiptapEditor.tsx:224:29
+Parsing ecmascript source code failed
+[0m [90m 222 |[39m           [33m<[39m[33mdiv[39m[33m>[39m[33mBold[39m[33m:[39m [33mCmd[39m[33m/[39m[33mCtrl[39m[33m+[39m[33mB[39m[33m,[39m [33mItalic[39m[33m:[39m [33mCmd[39m[33m/[39m[33mCtrl[39m[33m+[39m[33mI[39m[33m,[39m [33mUnderline[39m[33m:[39m [33mCmd[39m[33m/[39m[33mCtrl[39m[33m+[39m[33mU[39m[33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 223 |[39m           [33m<[39m[33mdiv[39m[33m>[39m[33mBullet[39m list[33m:[39m type [32m"- "[39m or use toolbar[33m;[39m [33mOrdered[39m list[33m:[39m type [32m"1. "[39m[33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+[31m[1m>[22m[39m[90m 224 |[39m           [33m<[39m[33mdiv[39m[33m>[39m[33mQuote[39m[33m:[39m type [32m"> "[39m[33m,[39m [33mHR[39m[33m:[39m type [32m"---"[39m[33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m     |[39m                             [31m[1m^[22m[39m
+ [90m 225 |[39m           [33m<[39m[33mdiv[39m[33m>[39m[33mSlash[39m menu[33m:[39m type [32m"/"[39m to open quick insert[33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 226 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 227 |[39m       )}[0m
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/components/TiptapEditor.tsx [Client Component Browser]
+    ./src/features/articles/ArticleForm.tsx [Client Component Browser]
+    ./src/features/articles/ArticleForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/articles/new/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/TiptapEditor.tsx [Client Component SSR]
+    ./src/features/articles/ArticleForm.tsx [Client Component SSR]
+    ./src/features/articles/ArticleForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/articles/new/page.tsx [Server Component]
+
+
+ ○ Compiling /_error ...
+ GET /api/auth/session 200 in 2786ms
+ GET /api/auth/session 200 in 2014ms
+ GET /api/auth/session 200 in 2491ms
+ GET /api/auth/session 200 in 2459ms
+ ✓ Compiled /_error in 54.2s
+ GET /dashboard/articles/new 500 in 60062ms
+ GET /favicon.ico 500 in 945ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:4000
+   - Network:      http://10.253.41.188:4000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 7s
+ ○ Compiling /dashboard/articles/new ...
+ ✓ Compiled /dashboard/articles/new in 36.1s
+ ⨯ ./src/components/TiptapEditor.tsx:12:1
+Module not found: Can't resolve '@tiptap/extension-image'
+[0m [90m 10 |[39m [36mimport[39m [33mTaskItem[39m [36mfrom[39m [32m'@tiptap/extension-task-item'[39m[33m;[39m
+ [90m 11 |[39m [36mimport[39m [33mPlaceholder[39m [36mfrom[39m [32m'@tiptap/extension-placeholder'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m'@tiptap/extension-image'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m [36mimport[39m { useEffect[33m,[39m useMemo[33m,[39m useRef[33m,[39m useState } [36mfrom[39m [32m'react'[39m[33m;[39m
+ [90m 14 |[39m
+ [90m 15 |[39m [90m// Minimal, fast, production-ready editor with a basic toolbar for short summaries[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/TiptapEditor.tsx [Client Component Browser]
+    ./src/features/articles/ArticleForm.tsx [Client Component Browser]
+    ./src/features/articles/ArticleForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/articles/new/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/TiptapEditor.tsx [Client Component SSR]
+    ./src/features/articles/ArticleForm.tsx [Client Component SSR]
+    ./src/features/articles/ArticleForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/articles/new/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 6.4s
+ GET /dashboard/articles/new 500 in 43734ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 2.2s
+ GET /favicon.ico 500 in 2267ms
+ ⨯ ./src/components/TiptapEditor.tsx:12:1
+Module not found: Can't resolve '@tiptap/extension-image'
+[0m [90m 10 |[39m [36mimport[39m [33mTaskItem[39m [36mfrom[39m [32m'@tiptap/extension-task-item'[39m[33m;[39m
+ [90m 11 |[39m [36mimport[39m [33mPlaceholder[39m [36mfrom[39m [32m'@tiptap/extension-placeholder'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m'@tiptap/extension-image'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 13 |[39m [36mimport[39m { useEffect[33m,[39m useMemo[33m,[39m useRef[33m,[39m useState } [36mfrom[39m [32m'react'[39m[33m;[39m
+ [90m 14 |[39m
+ [90m 15 |[39m [90m// Minimal, fast, production-ready editor with a basic toolbar for short summaries[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/TiptapEditor.tsx [Client Component Browser]
+    ./src/features/articles/ArticleForm.tsx [Client Component Browser]
+    ./src/features/articles/ArticleForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/articles/new/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/TiptapEditor.tsx [Client Component SSR]
+    ./src/features/articles/ArticleForm.tsx [Client Component SSR]
+    ./src/features/articles/ArticleForm.tsx [Server Component]
+    ./src/app/(cms)/dashboard/articles/new/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET /dashboard/articles/new 500 in 1316ms
+ GET /favicon.ico 500 in 1003ms
+ ✓ Compiled in 1512ms
+ ✓ Compiled /dashboard/articles/new in 473ms
+ GET /dashboard/articles/new 200 in 5535ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1745ms
+ ✓ Compiled /api/auth/[...nextauth] in 4.8s
+ GET /api/auth/session 200 in 7866ms
+ GET /api/auth/session 200 in 484ms
+ GET /api/auth/session 200 in 998ms
+ GET /api/auth/session 200 in 569ms
+ ○ Compiling /articles ...
+ GET /dashboard/articles/new 200 in 1717ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 3145ms
+ GET /api/auth/session 200 in 3425ms
+ GET /api/auth/session 200 in 1565ms
+ ✓ Compiled /articles in 31.3s
+ GET /articles 200 in 37024ms
+ GET /api/auth/session 200 in 1521ms
+ GET /api/auth/session 200 in 1609ms
+ GET /api/auth/session 200 in 725ms
+ GET /api/auth/session 200 in 766ms
+ GET /api/auth/session 200 in 1458ms
+ GET /api/auth/session 200 in 1094ms
+ ✓ Compiled in 1236ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /dashboard/articles/new 200 in 5071ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 767ms
+ GET /api/auth/session 200 in 772ms
+ GET /api/auth/session 200 in 608ms
+ GET /api/auth/session 200 in 369ms
+ GET /dashboard/articles/new 200 in 1045ms
+ ✓ Compiled in 3.2s
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /dashboard/articles/new 200 in 4439ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1347ms
+ GET /api/auth/session 200 in 1683ms
+ GET /api/auth/session 200 in 1180ms
+ GET /api/auth/session 200 in 1262ms
+ GET /api/auth/session 200 in 1558ms
+ GET /api/auth/session 200 in 1283ms
+ GET /api/auth/session 200 in 1724ms
+ GET /api/auth/session 200 in 715ms
+ GET /api/auth/session 200 in 1000ms
+ GET /api/auth/session 200 in 929ms
+ GET /api/auth/session 200 in 790ms
+ GET /api/auth/session 200 in 1087ms
+ GET /api/auth/session 200 in 800ms
+ ○ Compiling /predictions ...
+ ✓ Compiled /predictions in 5s
+ GET /predictions 200 in 6893ms
+ ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+ ○ Compiling / ...
+ ✓ Compiled / in 2.2s
+ GET / 200 in 3407ms
+ ○ Compiling / ...
+ ✓ Compiled / in 919ms
+ GET /dashboard/articles/new 200 in 1539ms
+ ✓ Compiled in 0ms
+ GET / 200 in 7045ms
+ GET /dashboard/articles/new 200 in 6401ms
+ GET / 200 in 2702ms
+ GET /api/auth/session 200 in 2022ms
+ GET /api/auth/session 200 in 829ms
+ GET /api/auth/session 200 in 876ms
+ GET /api/auth/session 200 in 936ms
+ GET /api/auth/session 200 in 598ms
+ GET /api/auth/session 200 in 502ms
+ GET /api/auth/session 200 in 478ms
+ GET /api/auth/session 200 in 419ms
+ GET /api/auth/session 200 in 452ms
+ GET / 200 in 4316ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 695ms
+ GET /api/auth/session 200 in 850ms
+ GET /api/auth/session 200 in 1228ms
+ GET /api/auth/session 200 in 983ms
+ GET /api/auth/session 200 in 359ms
+ GET /api/auth/session 200 in 768ms
+ GET /api/auth/session 200 in 402ms
+ GET /dashboard/articles/new 200 in 445ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 1016ms
+ GET /api/auth/session 200 in 1024ms
+ GET /api/auth/session 200 in 801ms
+ GET /api/auth/session 200 in 567ms
+ ✓ Compiled in 701ms
+ ✓ Compiled in 559ms
+ ✓ Compiled in 719ms
+ ✓ Compiled in 1138ms
+ ✓ Compiled in 402ms
+ ✓ Compiled in 845ms
+ ✓ Compiled in 524ms
+ ✓ Compiled in 1377ms

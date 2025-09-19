@@ -2,7 +2,6 @@ import NextAuth from "next-auth"; // Import the main NextAuth function
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import bcrypt from "bcryptjs";
 import type { NextAuthConfig } from "next-auth";
-import { AdapterUser } from "next-auth/adapters";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 

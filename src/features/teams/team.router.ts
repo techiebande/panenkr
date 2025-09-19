@@ -1,7 +1,53 @@
 
 // src/features/teams/team.router.ts
 import { prisma } from "@/lib/prisma";
-import { protectedProcedure, createTRPCRouter } from "@/lib/trpc/server";
+import { protectedProcedure, createTRPCRouter, adminProcedure } from "@/lib/trpc/server";
+import { z } from "zod";
+import fs from "fs";
+import path from "path";
+
+// Simple in-memory cache for crest listing to avoid repeated fs hits
+let crestCache: { ts: number; options: { value: string; label: string; filename: string }[] } | null = null;
+const CREST_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
+function formatLabelFromFilename(filename: string) {
+  const base = filename.replace(/\.[a-zA-Z0-9]+$/, "");
+  // Collapse duplicated halves like "fc-bayern-m-unchenfc-bayern-m-nchen"
+  const half = Math.floor(base.length / 2);
+  const first = base.slice(0, half);
+  const second = base.slice(half);
+  const dedup = second.startsWith(first) ? first : base;
+  return dedup
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+async function readCrestsDir(): Promise<{ value: string; label: string; filename: string }[]> {
+  const now = Date.now();
+  if (crestCache && now - crestCache.ts < CREST_CACHE_TTL_MS) {
+    return crestCache.options;
+  }
+  const crestDir = path.resolve(process.cwd(), "public", "crests");
+  let files: string[] = [];
+  try {
+    files = fs
+      .readdirSync(crestDir, { withFileTypes: true })
+      .filter((d) => d.isFile())
+      .map((d) => d.name)
+      .filter((name) => /\.(svg|png|jpg|jpeg)$/i.test(name));
+      } catch {
+    files = [];
+  }
+  const options = files.map((filename) => ({
+    value: `/crests/${filename}`,
+    filename,
+    label: formatLabelFromFilename(filename),
+  }));
+  crestCache = { ts: now, options };
+  return options;
+}
 
 export const teamRouter = createTRPCRouter({
   list: protectedProcedure.query(async () => {
@@ -11,4 +57,25 @@ export const teamRouter = createTRPCRouter({
       },
     });
   }),
+
+  listCrests: protectedProcedure
+    .input(z.object({ q: z.string().optional() }).optional())
+    .query(async ({ input }) => {
+      const all = await readCrestsDir();
+      const q = input?.q?.trim().toLowerCase();
+      if (!q) return all;
+      return all.filter((o) =>
+        o.label.toLowerCase().includes(q) || o.filename.toLowerCase().includes(q)
+      );
+    }),
+
+  updateCrest: adminProcedure
+    .input(z.object({ teamId: z.string(), crestUrl: z.string().regex(/^\/crests\//) }))
+    .mutation(async ({ input }) => {
+      const { teamId, crestUrl } = input;
+      return prisma.team.update({
+        where: { id: teamId },
+        data: { crestUrl },
+      });
+    }),
 });

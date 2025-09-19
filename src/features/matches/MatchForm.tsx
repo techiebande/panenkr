@@ -3,6 +3,7 @@
 
 import { MatchWithTeams } from "@/features/matches/match.router";
 import { Combobox } from "@/components/ui/combobox";
+import Image from "next/image";
 import {
   Select,
   SelectContent,
@@ -30,20 +31,75 @@ import {
 } from "@/components/ui/form";
 import { createMatchSchema } from "@/features/matches/match.schema";
 import { trpc } from "@/lib/trpc/client";
-import { useEffect, useMemo, useState } from "react";
-import { format } from "date-fns";
+import { useMemo, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Match, MatchStatus } from "@prisma/client";
+import { MatchStatus } from "@prisma/client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { parseDateTimeLocal, formatDateTimeLocal } from "@/lib/datetime-utils";
 
 type MatchFormValues = z.infer<typeof createMatchSchema>;
 
 type MatchFormProps = {
   initialData?: MatchWithTeams | null;
 };
+
+function CrestSelect({
+  value,
+  onChange,
+  options,
+  placeholder,
+}: {
+  value?: string
+  onChange: (v: string) => void
+  options: { value: string; label: string; filename: string }[]
+  placeholder?: string
+}) {
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  // Lightweight client-side filter
+  const filtered = useMemo(() => {
+    const q = query.toLowerCase();
+    return options.filter(o => o.label.toLowerCase().includes(q) || o.filename.toLowerCase().includes(q));
+  }, [options, query]);
+
+  return (
+    <div className="relative">
+      <button type="button" onClick={() => setOpen(o => !o)} className="h-10 rounded border px-3 text-sm">
+        {value ? value.split("/").pop() : (placeholder || "Select crest")}
+      </button>
+      {open && (
+        <div className="absolute z-50 mt-2 w-72 max-h-80 overflow-auto rounded border bg-background p-2 shadow">
+          <input
+            className="mb-2 w-full rounded border px-2 py-1 text-sm"
+            placeholder="Search crest..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <ul className="space-y-1">
+            {filtered.map((opt) => (
+              <li key={opt.value}>
+                <button
+                  type="button"
+                  className="flex w-full items-center gap-2 rounded px-2 py-1 hover:bg-muted"
+                  onClick={() => {
+                    onChange(opt.value);
+                    setOpen(false);
+                  }}
+                >
+                  <Image src={opt.value} alt={opt.label} width={20} height={20} className="rounded" />
+                  <span className="truncate text-left text-sm">{opt.label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function MatchForm({ initialData }: MatchFormProps) {
   const router = useRouter();
@@ -53,13 +109,21 @@ export default function MatchForm({ initialData }: MatchFormProps) {
     resolver: zodResolver(createMatchSchema),
     defaultValues: initialData
       ? {
-          ...initialData,
-          kickoffAt: new Date(initialData.kickoffAt),
+          homeTeamId: initialData.homeTeamId,
+          awayTeamId: initialData.awayTeamId,
+          leagueId: initialData.leagueId || undefined,
+          kickoffAt: initialData.kickoffAt instanceof Date 
+            ? initialData.kickoffAt 
+            : new Date(initialData.kickoffAt),
+          status: initialData.status,
+          scoreHome: initialData.scoreHome || undefined,
+          scoreAway: initialData.scoreAway || undefined,
         }
       : {
           homeTeamId: "",
           awayTeamId: "",
           leagueId: "",
+          // Default to current date/time for new matches
           kickoffAt: new Date(),
           status: MatchStatus.SCHEDULED,
           scoreHome: undefined,
@@ -70,6 +134,8 @@ export default function MatchForm({ initialData }: MatchFormProps) {
 
   const { data: teams } = trpc.teams.list.useQuery();
   const { data: leagues } = trpc.leagues.list.useQuery();
+  const { data: crestOptions } = trpc.teams.listCrests.useQuery();
+  const utils = trpc.useUtils();
 
   const teamOptions = useMemo(() => {
     return (
@@ -89,8 +155,15 @@ export default function MatchForm({ initialData }: MatchFormProps) {
     );
   }, [leagues]);
 
+  const updateTeamCrestMutation = trpc.teams.updateCrest.useMutation({
+    onSuccess: () => {
+      utils.teams.list.invalidate();
+    },
+  });
+  const updateTeamCrest = updateTeamCrestMutation.mutate;
+
   const createMatch = trpc.matches.create.useMutation({
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success(`Match created successfully!`);
       router.push("/dashboard/matches");
       router.refresh();
@@ -102,7 +175,7 @@ export default function MatchForm({ initialData }: MatchFormProps) {
   });
 
   const updateMatch = trpc.matches.update.useMutation({
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success(`Match updated successfully!`);
       router.push("/dashboard/matches");
       router.refresh();
@@ -136,38 +209,88 @@ export default function MatchForm({ initialData }: MatchFormProps) {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <FormField
-                  name="homeTeamId"
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem className="flex flex-col">
-                      <FormLabel>Home Team</FormLabel>
-                      <Combobox
-                        options={teamOptions}
-                        value={field.value}
-                        onChange={field.onChange}
-                        placeholder="Select a team..."
-                      />
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  name="awayTeamId"
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem className="flex flex-col">
-                      <FormLabel>Away Team</FormLabel>
-                      <Combobox
-                        options={teamOptions}
-                        value={field.value}
-                        onChange={field.onChange}
-                        placeholder="Select a team..."
-                      />
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                {/* Crest pickers for quick visual confirmation */}
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    name="homeTeamId"
+                    control={form.control}
+                    render={({ field }) => (
+                      <FormItem className="flex flex-col">
+                        <FormLabel>Home Team</FormLabel>
+                        <Combobox
+                          options={teamOptions}
+                          value={field.value}
+                          onChange={field.onChange}
+                          placeholder="Select a team..."
+                        />
+                        {crestOptions && (
+                          <div className="mt-2 flex items-center gap-3">
+                            <CrestSelect
+                              value={teams?.find(t => t.id === field.value)?.crestUrl || ""}
+                              onChange={(url) => {
+                                const id = field.value;
+                                if (!id) return;
+                                // optimistic UI not necessary, just fire-and-forget
+                                updateTeamCrest({ teamId: id, crestUrl: url });
+                              }}
+                              options={crestOptions}
+                              placeholder="Crest"
+                            />
+                            {teams?.find(t => t.id === field.value)?.crestUrl && (
+                              <Image
+                                src={teams!.find(t => t.id === field.value)!.crestUrl!}
+                                alt="Home crest"
+                                width={28}
+                                height={28}
+                                className="rounded"
+                              />
+                            )}
+                          </div>
+                        )}
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    name="awayTeamId"
+                    control={form.control}
+                    render={({ field }) => (
+                      <FormItem className="flex flex-col">
+                        <FormLabel>Away Team</FormLabel>
+                        <Combobox
+                          options={teamOptions}
+                          value={field.value}
+                          onChange={field.onChange}
+                          placeholder="Select a team..."
+                        />
+                        {crestOptions && (
+                          <div className="mt-2 flex items-center gap-3">
+                            <CrestSelect
+                              value={teams?.find(t => t.id === field.value)?.crestUrl || ""}
+                              onChange={(url) => {
+                                const id = field.value;
+                                if (!id) return;
+                                updateTeamCrest({ teamId: id, crestUrl: url });
+                              }}
+                              options={crestOptions}
+                              placeholder="Crest"
+                            />
+                            {teams?.find(t => t.id === field.value)?.crestUrl && (
+                              <Image
+                                src={teams!.find(t => t.id === field.value)!.crestUrl!}
+                                alt="Away crest"
+                                width={28}
+                                height={28}
+                                className="rounded"
+                              />
+                            )}
+                          </div>
+                        )}
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
               </div>
 
               <FormField
@@ -196,10 +319,13 @@ export default function MatchForm({ initialData }: MatchFormProps) {
                     <FormControl>
                       <Input
                         type="datetime-local"
-                        value={format(field.value, "yyyy-MM-dd'T'HH:mm")}
-                        onChange={(e) => field.onChange(new Date(e.target.value))}
+                        value={formatDateTimeLocal(field.value)}
+                        onChange={(e) => field.onChange(parseDateTimeLocal(e.target.value))}
                       />
                     </FormControl>
+                    <FormDescription>
+                      Enter the exact date and time (e.g., &quot;2nd January 2025, 14:00&quot; will be stored exactly as entered)
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -245,11 +371,11 @@ export default function MatchForm({ initialData }: MatchFormProps) {
                           type="number"
                           placeholder="0"
                           {...{ ...field, onChange: undefined }}
-                          value={field.value || ""}
+                          value={field.value ?? ""}
                           onChange={(event) => {
                             const valueAsString = event.target.value;
                             field.onChange(
-                              valueAsString === "" ? undefined : +valueAsString
+                              valueAsString === "" ? null : +valueAsString
                             );
                           }}
                         />
@@ -269,11 +395,11 @@ export default function MatchForm({ initialData }: MatchFormProps) {
                           type="number"
                           placeholder="0"
                           {...{ ...field, onChange: undefined }}
-                          value={field.value || ""}
+                          value={field.value ?? ""}
                           onChange={(event) => {
                             const valueAsString = event.target.value;
                             field.onChange(
-                              valueAsString === "" ? undefined : +valueAsString
+                              valueAsString === "" ? null : +valueAsString
                             );
                           }}
                         />

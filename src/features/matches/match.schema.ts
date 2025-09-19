@@ -8,9 +8,9 @@ export const createMatchSchema = z.object({
   awayTeamId: z.string().min(1, "Away team is required."),
   leagueId: z.string().optional(),
   kickoffAt: z.date(),
-  status: z.nativeEnum(MatchStatus).default(MatchStatus.SCHEDULED),
-  scoreHome: z.number().int().optional(),
-  scoreAway: z.number().int().optional(),
+  status: z.nativeEnum(MatchStatus),
+  scoreHome: z.number().int().nullish(),
+  scoreAway: z.number().int().nullish(),
 });
 
 export const updateMatchSchema = createMatchSchema.extend({
