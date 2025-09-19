@@ -103,9 +103,16 @@ export default function PredictionForm({ initialData }: PredictionFormProps) {
     resolver: zodResolver(createPredictionSchema),
     defaultValues: initialData
       ? {
-          ...initialData,
-          content: typeof initialData.content === 'string' ? initialData.content : JSON.stringify(initialData.content || ''),
+          title: initialData.title,
+          matchId: initialData.matchId,
+          type: initialData.type as PredictionType,
+          value: initialData.value,
           confidence: initialData.confidence,
+          isPremium: initialData.isPremium,
+          content: typeof initialData.content === 'string' ? initialData.content : JSON.stringify(initialData.content || ''),
+          summary: (initialData as unknown as { summary?: string }).summary || '',
+          teamNewsHome: (initialData as unknown as { teamNewsHome?: string }).teamNewsHome || '',
+          teamNewsAway: (initialData as unknown as { teamNewsAway?: string }).teamNewsAway || '',
         }
       : {
           title: "",

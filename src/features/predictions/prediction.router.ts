@@ -317,26 +317,25 @@ export const predictionRouter = createTRPCRouter({
         endDate = new Date(startDate.getTime() + 3 * 24 * 60 * 60 * 1000 - 1);
       }
 
-      const whereClause: {
-        publishStatus: string;
-        match?: { kickoffAt: { gte: Date; lte: Date } };
-        type?: string;
-      } = {
+      const baseWhereClause = {
         publishStatus: PublishStatus.PUBLISHED,
         ...(startDate && endDate && { match: { kickoffAt: { gte: startDate, lte: endDate } } }),
-        ...(typeFilter !== "ALL" ? { type: typeFilter } : {}),
       };
+      
+      const whereClause = typeFilter !== "ALL" 
+        ? { ...baseWhereClause, type: typeFilter }
+        : baseWhereClause;
 
       const [freeCount, premiumCount] = await Promise.all([
-        prisma.prediction.count({ where: { ...whereClause, isPremium: false } as unknown as any }),
-        prisma.prediction.count({ where: { ...whereClause, isPremium: true } as unknown as any }),
+        prisma.prediction.count({ where: { ...whereClause, isPremium: false } }),
+        prisma.prediction.count({ where: { ...whereClause, isPremium: true } }),
       ]);
 
       const free = await prisma.prediction.findMany({
         where: {
           ...whereClause,
           isPremium: false,
-        } as unknown as any,
+        },
         skip,
         take: limit,
         orderBy:
@@ -362,7 +361,7 @@ export const predictionRouter = createTRPCRouter({
         where: {
           ...whereClause,
           isPremium: true,
-        } as unknown as any,
+        },
         skip,
         take: limit,
         orderBy:
