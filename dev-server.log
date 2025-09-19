@@ -1177,3 +1177,24 @@ https://nextjs.org/docs/messages/module-not-found
  ✓ Compiled in 3.1s
  ✓ Compiled in 1836ms
  ✓ Compiled in 2.4s
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:4000
+   - Network:      http://192.168.43.247:4000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 5.6s
+ ✓ Compiled in 342ms
+ ○ Compiling middleware ...
+ ✓ Compiled middleware in 1371ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:4000
+   - Network:      http://192.168.43.247:4000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Compiled middleware in 365ms
+ ✓ Ready in 3s
+ ✓ Compiled middleware in 4ms

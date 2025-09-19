@@ -6,12 +6,15 @@ const cspProd = [
   "default-src 'self'",
   "img-src 'self' res.cloudinary.com data: blob:",
   "media-src 'self' data: blob:",
-  // In production we keep script-src strict; if you introduce inline scripts, move to a nonce-based CSP
-  "script-src 'self'",
+  // Next.js requires 'unsafe-inline' and 'unsafe-eval' for Turbopack in production
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
-  "connect-src 'self' https:",
+  "connect-src 'self' https: wss:", // Added wss: for websocket connections
   "frame-ancestors 'none'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
 ].join('; ');
 
 const cspDev = [
