@@ -9,22 +9,23 @@ import { Separator } from "@/components/ui/separator";
 import { PredictionCard } from "@/features/predictions/PredictionCard";
 
 interface MatchPageProps {
-  params: {
+  params: Promise<{
     matchId: string;
-  };
+  }>;
 }
 
 export default async function MatchPage({ params }: MatchPageProps) {
+  const { matchId } = await params;
   const serverContext = await createTRPCContext();
   const serverCaller = appRouter.createCaller(serverContext);
 
-  const match = await serverCaller.matches.getPublicById({ id: params.matchId });
+  const match = await serverCaller.matches.getPublicById({ id: matchId });
 
   if (!match) {
     notFound();
   }
 
-  const predictions = await serverCaller.predictions.getPublicByMatchId({ matchId: params.matchId });
+const predictions = await serverCaller.predictions.getPublicByMatchId({ matchId });
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">

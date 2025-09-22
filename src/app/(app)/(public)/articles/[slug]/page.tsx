@@ -7,10 +7,11 @@ import TiptapRenderer from '@/components/TiptapRenderer';
 import { Button } from '@/components/ui/button';
 import { ArrowLeftIcon } from 'lucide-react';
 
-export default async function ArticlePage({ params }: { params: { slug: string } }) {
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const context = await createTRPCContext();
   const caller = appRouter.createCaller(context);
-  const article = await caller.articles.getBySlug({ slug: params.slug });
+  const article = await caller.articles.getBySlug({ slug });
 
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
