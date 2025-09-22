@@ -13,7 +13,11 @@ NEXTAUTH_URL=https://your-domain.vercel.app
 NEXTAUTH_SECRET=your-long-random-secret-here
 
 # Database (Turso)
-DATABASE_URL=libsql://your-turso-database-url?authToken=your-turso-token
+# Prisma requires a SQLite-style file: URL even when using Turso via driver adapter.
+# Use any placeholder file path; it will not be used when the adapter is active.
+DATABASE_URL=file:./prod.db
+TURSO_DB_URL=libsql://your-turso-database-url
+TURSO_DB_TOKEN=your-turso-token
 
 # Production Environment
 NODE_ENV=production

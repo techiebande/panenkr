@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['res.cloudinary.com'],
   },
+  // Ensure Turso/libSQL adapter packages are treated correctly on the server
+  serverExternalPackages: [
+    '@libsql/client',
+    '@prisma/adapter-libsql',
+  ],
   async headers() {
     return [
       {
