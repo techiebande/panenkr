@@ -52,7 +52,7 @@ const PredictionCard = ({ prediction }: PredictionCardProps) => {
           </div>
         </CardHeader>
         <CardContent className="p-4 flex-1">
-          <div className="mt-1 grid grid-cols-3 items-center gap-2">
+          <div className="mt-1 grid grid-cols-2 items-center gap-2">
             <div className="text-left">
               <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Type</p>
               <p className="text-sm font-medium text-foreground">{type.replace(/_/g, ' ')}</p>
@@ -64,12 +64,6 @@ const PredictionCard = ({ prediction }: PredictionCardProps) => {
               <p className={"text-2xl font-extrabold text-primary " + (isPremium ? "blur-sm select-none" : "") }>
                 {value || "—"}
               </p>
-            </div>
-            <div className="text-right">
-              <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Confidence</p>
-              <div className={"w-full bg-muted rounded-full h-2 " + (isPremium ? "blur-sm" : "") }>
-                <div className="bg-success h-2 rounded-full" style={{ width: `${confidence * 10}%` }} />
-              </div>
             </div>
           </div>
         </CardContent>

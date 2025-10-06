@@ -132,13 +132,6 @@ export default async function PredictionPage(props: { params: Promise<{ slug: st
                 </div>
               </section>
 
-              <section className="rounded-lg border border-border p-4">
-                <h3 className="text-lg font-semibold mb-2">Confidence</h3>
-                <div className="w-full bg-muted rounded-full h-2.5">
-                  <div className="bg-success h-2.5 rounded-full" style={{ width: `${prediction.confidence * 10}%` }} />
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">Confidence score: {prediction.confidence}/10</p>
-              </section>
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center bg-muted p-8 rounded-lg mt-8">

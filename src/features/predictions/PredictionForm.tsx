@@ -363,30 +363,6 @@ export default function PredictionForm({ initialData }: PredictionFormProps) {
                 )}
               </div>
 
-              <FormField
-                control={form.control}
-                name="confidence"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Confidence (1-10)</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        placeholder="5"
-                        {...{ ...field, onChange: undefined }}
-                        value={field.value || ""}
-                        onChange={(event) => {
-                          const valueAsString = event.target.value;
-                          field.onChange(
-                            valueAsString === "" ? 0 : +valueAsString
-                          );
-                        }}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
 
               <FormField
                 name="summary"
