@@ -27,7 +27,6 @@ const cspDev = [
   "connect-src 'self' http: https: ws:",
   "frame-ancestors 'none'",
 ].join('; ');
-].join('; ');
 
 const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
