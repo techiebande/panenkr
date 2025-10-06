@@ -5,22 +5,16 @@ import Image from "next/image";
 import { getCrestPath } from "@/lib/crests";
 import { format } from "date-fns";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+// removed author avatar display
 import { Separator } from "@/components/ui/separator";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import TiptapRenderer from "@/components/TiptapRenderer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
-import DOMPurify from "isomorphic-dompurify";
+// removed DOMPurify; using TiptapRenderer to render sanitized html
 
-function sanitize(html: string) {
-  // Conservative config: no scripts, allow basic formatting and links/images
-  return DOMPurify.sanitize(html, {
-    USE_PROFILES: { html: true },
-  });
-}
 
 function jsonLdForPrediction(p: { title: string; publishedAt?: Date | string | null; author?: { name?: string | null } | null; match?: { homeTeam?: { name: string }; awayTeam?: { name: string } }; isPremium: boolean; type: string; value: string }) {
   const data = {
@@ -55,7 +49,7 @@ export default async function PredictionPage(props: { params: Promise<{ slug: st
     <>
       {/* JSON-LD structured data */}
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: jsonLdForPrediction(prediction) }} />
-<div className="container mx-auto px-4 py-10 max-w-3xl">
+<div className="container mx-auto px-4 pt-6 pb-8 max-w-3xl">
       <Card className="mb-8 shadow-lg">
 <CardHeader className="text-center space-y-2">
           <div className="flex items-center justify-center space-x-4 mb-4">
@@ -96,45 +90,24 @@ export default async function PredictionPage(props: { params: Promise<{ slug: st
           </h1>
 
           <div className="flex items-center justify-center space-x-4 text-muted-foreground mb-6">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src={prediction.author.image || undefined} alt={prediction.author.name || "Author"} />
-              <AvatarFallback>{prediction.author.name?.charAt(0) || "A"}</AvatarFallback>
-            </Avatar>
-            <div>
-              <p className="font-medium">{prediction.author.name}</p>
-              <p className="text-sm">
-                {prediction.publishedAt && format(new Date(prediction.publishedAt), "MMMM d, yyyy")}
-              </p>
-            </div>
+            <p className="text-sm">
+              {prediction.publishedAt && format(new Date(prediction.publishedAt), "MMMM d, yyyy")}
+            </p>
           </div>
 
           {canViewContent ? (
             <div className="space-y-10 mt-8">
               <section className="prose prose-lg dark:prose-invert max-w-none">
-                <MDXRemote source={prediction.content as unknown as string} />
+                <TiptapRenderer content={String(prediction.content || "")} />
               </section>
 
               <section>
                 <h2 className="text-xl font-bold mb-3">Prediction Summary</h2>
                 <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                   {prediction.summary ? (
-                    // Render rich summary HTML (sanitized)
-                    <div dangerouslySetInnerHTML={{ __html: sanitize(String(prediction.summary)) }} />
-                  ) : (
-                    <p>
-                      Our tip: <span className="font-semibold">{prediction.type.replace(/_/g, ' ')}</span> — <span className="font-semibold">{prediction.value}</span>. This selection is backed by recent form, head‑to‑head stats, and expected game state.
-                    </p>
-                  )}
+                    <TiptapRenderer content={String(prediction.summary)} />
+                  ) : null}
                 </div>
-              </section>
-
-              <section>
-                <h3 className="text-lg font-semibold mb-2">Why we like this pick</h3>
-                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                  <li>Recent form trend: Home/Away momentum points toward this outcome.</li>
-                  <li>Expected goals profile supports the probability of this result.</li>
-                  <li>Tactical matchup and manager tendencies align with the pick.</li>
-                </ul>
               </section>
 
               <section>
@@ -143,24 +116,18 @@ export default async function PredictionPage(props: { params: Promise<{ slug: st
                   <div>
                     <p className="font-medium">{prediction.match.homeTeam.name}</p>
                     {prediction.teamNewsHome ? (
-                      <p className="text-sm whitespace-pre-wrap">{prediction.teamNewsHome}</p>
-                    ) : (
-                      <ul className="list-disc pl-5 text-sm space-y-1">
-                        <li>Missing: Key striker (hamstring) — doubtful</li>
-                        <li>Rotation watch: Midweek cup game may impact lineup</li>
-                      </ul>
-                    )}
+                      <div className="prose prose-sm dark:prose-invert max-w-none">
+                        <TiptapRenderer content={String(prediction.teamNewsHome)} />
+                      </div>
+                    ) : null}
                   </div>
                   <div>
                     <p className="font-medium">{prediction.match.awayTeam.name}</p>
                     {prediction.teamNewsAway ? (
-                      <p className="text-sm whitespace-pre-wrap">{prediction.teamNewsAway}</p>
-                    ) : (
-                      <ul className="list-disc pl-5 text-sm space-y-1">
-                        <li>Missing: Starting fullback (suspension)</li>
-                        <li>Returning: Veteran CB available after rest</li>
-                      </ul>
-                    )}
+                      <div className="prose prose-sm dark:prose-invert max-w-none">
+                        <TiptapRenderer content={String(prediction.teamNewsAway)} />
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </section>

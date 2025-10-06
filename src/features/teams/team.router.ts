@@ -5,6 +5,8 @@ import { protectedProcedure, createTRPCRouter, adminProcedure } from "@/lib/trpc
 import { z } from "zod";
 import fs from "fs";
 import path from "path";
+import slugify from "slugify";
+import { createTeamSchema, updateTeamSchema } from "./team.schema";
 
 // Simple in-memory cache for crest listing to avoid repeated fs hits
 let crestCache: { ts: number; options: { value: string; label: string; filename: string }[] } | null = null;
@@ -52,11 +54,70 @@ async function readCrestsDir(): Promise<{ value: string; label: string; filename
 export const teamRouter = createTRPCRouter({
   list: protectedProcedure.query(async () => {
     return prisma.team.findMany({
-      orderBy: {
-        name: "asc",
-      },
+      orderBy: { name: "asc" },
+      include: { league: true },
     });
   }),
+
+  getById: protectedProcedure
+    .input(z.object({ id: z.string().cuid() }))
+    .query(async ({ input }) => {
+      return prisma.team.findUnique({ where: { id: input.id }, include: { league: true } });
+    }),
+
+  create: adminProcedure
+    .input(createTeamSchema)
+    .mutation(async ({ input }) => {
+      const { name, shortName, leagueId, crestUrl, externalId } = input;
+      const slug = slugify(name, { lower: true, strict: true });
+
+      const existingByName = await prisma.team.findFirst({ where: { OR: [{ name }, { slug }] } });
+      if (existingByName) {
+        throw new Error("A team with this name or slug already exists.");
+      }
+
+      return prisma.team.create({
+        data: {
+          name,
+          shortName: shortName || null,
+          slug,
+          crestUrl: crestUrl || null,
+          externalId: externalId || null,
+          leagueId: leagueId || null,
+        },
+      });
+    }),
+
+  update: adminProcedure
+    .input(updateTeamSchema)
+    .mutation(async ({ input }) => {
+      const { id, name, shortName, leagueId, crestUrl, externalId } = input;
+      const slug = slugify(name, { lower: true, strict: true });
+
+      // Ensure slug uniqueness (except current)
+      const conflict = await prisma.team.findFirst({ where: { slug, NOT: { id } } });
+      if (conflict) {
+        throw new Error("A team with a similar name already exists (slug conflict).");
+      }
+
+      return prisma.team.update({
+        where: { id },
+        data: {
+          name,
+          shortName: shortName || null,
+          slug,
+          crestUrl: crestUrl || null,
+          externalId: externalId || null,
+          leagueId: leagueId || null,
+        },
+      });
+    }),
+
+  delete: adminProcedure
+    .input(z.object({ id: z.string().cuid() }))
+    .mutation(async ({ input }) => {
+      return prisma.team.delete({ where: { id: input.id } });
+    }),
 
   listCrests: protectedProcedure
     .input(z.object({ q: z.string().optional() }).optional())

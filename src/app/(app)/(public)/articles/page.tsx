@@ -57,7 +57,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: Pro
 
   return (
 <div className="min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 py-16 sm:py-24">
+      <div className="container mx-auto px-4 pt-6 pb-10">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Football Articles</h1>
           <p className="mt-4 text-lg text-muted-foreground">Your source for the latest news, analysis, and stories.</p>

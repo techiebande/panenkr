@@ -416,7 +416,11 @@ export default function PredictionForm({ initialData }: PredictionFormProps) {
                     <FormItem>
                       <FormLabel>Home Team News</FormLabel>
                       <FormControl>
-                        <Input placeholder="Missing/returning players, rotation notes" {...field} />
+                        <TiptapEditor
+                          value={field.value || ""}
+                          onChange={(html) => field.onChange(html)}
+                          placeholder="Home team news: injuries, rotations, tactical notes..."
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -429,7 +433,11 @@ export default function PredictionForm({ initialData }: PredictionFormProps) {
                     <FormItem>
                       <FormLabel>Away Team News</FormLabel>
                       <FormControl>
-                        <Input placeholder="Missing/returning players, rotation notes" {...field} />
+                        <TiptapEditor
+                          value={field.value || ""}
+                          onChange={(html) => field.onChange(html)}
+                          placeholder="Away team news: injuries, rotations, tactical notes..."
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

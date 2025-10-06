@@ -1,18 +1,28 @@
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+// removed author avatar display
 import { inferRouterOutputs } from "@trpc/server";
 import { appRouter } from "@/lib/trpc/root";
 import Image from "next/image";
 
-type Article = inferRouterOutputs<typeof appRouter>["articles"]["getRecent"][0];
+type Article = inferRouterOutputs<typeof appRouter>["articles"]["getPublished"]["articles"][0] | inferRouterOutputs<typeof appRouter>["articles"]["getRecent"][0];
 
 interface ArticleCardProps {
   article: Article;
 }
 
+function extractFirstImageSrc(article: any): string | undefined {
+  try {
+    const html = String(article?.content || "");
+    const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+    return match?.[1];
+  } catch {
+    return undefined;
+  }
+}
+
 const ArticleCard = ({ article }: ArticleCardProps) => {
-  const { title, slug, featuredImage, author, publishedAt } = article;
+  const { title, slug, featuredImage, publishedAt } = article as any;
 
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
@@ -21,12 +31,12 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
   }).format(publishedAt ? new Date(publishedAt) : new Date());
 
   return (
-    <Link href={`/article/${slug}`} className="block group">
+    <Link href={`/articles/${slug}`} className="block group">
 <Card className="overflow-hidden transition-all duration-300 ease-in-out hover:shadow-md hover:-translate-y-0.5">
         <CardHeader className="p-0">
           <div className="relative h-48 w-full">
             <Image
-              src={featuredImage?.url || "/placeholder.svg"}
+              src={(featuredImage?.url) || extractFirstImageSrc(article as any) || "/placeholder.svg"}
               alt={featuredImage?.altText || title}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -40,14 +50,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         </CardContent>
         <CardFooter className="p-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src={author.image || undefined} alt={author.name || "Author"} />
-              <AvatarFallback>{author.name?.charAt(0)}</AvatarFallback>
-            </Avatar>
-            <div>
-<p className="text-sm font-medium">{author.name}</p>
-              <p className="text-xs text-muted-foreground">{formattedDate}</p>
-            </div>
+            <p className="text-xs text-muted-foreground">{formattedDate}</p>
           </div>
         </CardFooter>
       </Card>

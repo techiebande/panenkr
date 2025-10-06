@@ -15,6 +15,7 @@ import {
   LogOut,
   Menu,
   Target,
+  Flag
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -54,6 +55,16 @@ const navigation = [
     name: "Matches",
     href: "/dashboard/matches",
     icon: Calendar,
+  },
+  {
+    name: "Leagues",
+    href: "/dashboard/leagues",
+    icon: Flag,
+  },
+  {
+    name: "Teams",
+    href: "/dashboard/teams",
+    icon: Users,
   },
   {
     name: "Users",

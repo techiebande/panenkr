@@ -253,7 +253,7 @@ export const articleRouter = createTRPCRouter({
         orderBy: {
           publishedAt: "desc",
         },
-        include: {
+include: {
           author: {
             select: { name: true, image: true },
           },
@@ -318,7 +318,7 @@ export const articleRouter = createTRPCRouter({
         orderBy: {
           publishedAt: "desc",
         },
-        include: {
+include: {
           author: {
             select: { name: true, image: true },
           },
