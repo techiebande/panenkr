@@ -4,7 +4,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const cspProd = [
   "default-src 'self'",
-  "img-src 'self' res.cloudinary.com data: blob:",
+  "img-src 'self' res.cloudinary.com authjs.dev lh3.googleusercontent.com data: blob:",
   "media-src 'self' data: blob:",
   // Next.js requires 'unsafe-inline' and 'unsafe-eval' for Turbopack in production
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
@@ -14,19 +14,19 @@ const cspProd = [
   "frame-ancestors 'none'",
   "object-src 'none'",
   "base-uri 'self'",
-  "form-action 'self'",
+  "form-action 'self' https://panenkr.vercel.app https://accounts.google.com",
 ].join('; ');
 
 const cspDev = [
   "default-src 'self'",
-  "img-src 'self' res.cloudinary.com data: blob:",
-  "media-src 'self' data: blob:",  
+  "img-src 'self' res.cloudinary.com authjs.dev lh3.googleusercontent.com data: blob:",  
   // Dev needs inline/eval and websocket for HMR and Turbopack runtime
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
   "connect-src 'self' http: https: ws:",
   "frame-ancestors 'none'",
+].join('; ');
 ].join('; ');
 
 const securityHeaders = [
