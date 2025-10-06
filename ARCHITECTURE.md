@@ -323,7 +323,12 @@ appRouter {
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=<needs-secure-random-string>
-DATABASE_URL=file:./dev.db
+
+# Turso (required in all environments)
+DATABASE_URL=file:./placeholder.db
+TURSO_DB_URL=libsql://panenkr-techiebande.aws-eu-west-1.turso.io
+TURSO_DB_TOKEN=<set-locally-for-dev-and-in-vercel-for-prod>
+
 GOOGLE_CLIENT_ID=<needs-google-oauth-setup>
 GOOGLE_CLIENT_SECRET=<needs-google-oauth-setup>
 ```

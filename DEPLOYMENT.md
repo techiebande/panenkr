@@ -13,11 +13,11 @@ NEXTAUTH_URL=https://your-domain.vercel.app
 NEXTAUTH_SECRET=your-long-random-secret-here
 
 # Database (Turso)
-# Prisma requires a SQLite-style file: URL even when using Turso via driver adapter.
-# Use any placeholder file path; it will not be used when the adapter is active.
-DATABASE_URL=file:./prod.db
-TURSO_DB_URL=libsql://your-turso-database-url
-TURSO_DB_TOKEN=your-turso-token
+# Local file DB is disabled. Turso is required in all environments.
+# Prisma still requires a SQLite-style file: URL, but it is unused when the libSQL adapter is active.
+DATABASE_URL=file:./placeholder.db
+TURSO_DB_URL=libsql://panenkr-techiebande.aws-eu-west-1.turso.io
+TURSO_DB_TOKEN=<set-in-vercel>
 
 # Production Environment
 NODE_ENV=production
@@ -42,6 +42,19 @@ FLUTTERWAVE_WEBHOOK_SECRET=your-webhook-secret
 SENTRY_DSN=your-sentry-dsn-url
 REDIS_URL=your-redis-url
 ```
+
+## Local Development
+
+- Create a .env.local file (gitignored) and set the following:
+
+```bash
+# Turso (required in dev)
+DATABASE_URL=file:./placeholder.db
+TURSO_DB_URL=libsql://panenkr-techiebande.aws-eu-west-1.turso.io
+TURSO_DB_TOKEN=<your-turso-token>
+```
+
+- No local file DB fallback is allowed. The app will error if Turso env vars are missing.
 
 ## Deployment Steps
 

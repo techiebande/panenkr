@@ -9,6 +9,8 @@ import fs from 'fs';
 import fsp from 'fs/promises';
 import path from 'path';
 import process from 'process';
+import { PrismaClient } from '@prisma/client';
+import { PrismaLibSQL } from '@prisma/adapter-libsql';
 
 // Lightweight .env loader (since Node doesn't auto-load .env files)
 function loadEnvFile(filePath) {
@@ -93,8 +95,13 @@ async function normalizeFiles() {
 }
 
 async function updateDatabase(mapping) {
-  const { PrismaClient } = await import('@prisma/client');
-  const prisma = new PrismaClient();
+  const tursoUrl = process.env.TURSO_DB_URL || (process.env.DATABASE_URL && process.env.DATABASE_URL.startsWith('libsql://') ? process.env.DATABASE_URL : undefined);
+  const tursoToken = process.env.TURSO_DB_TOKEN || process.env.LIBSQL_AUTH_TOKEN;
+  if (!tursoUrl) {
+    throw new Error('[script] Missing Turso configuration. Set TURSO_DB_URL and TURSO_DB_TOKEN (or DATABASE_URL starting with libsql://). Local file DB is disabled.');
+  }
+  const adapter = new PrismaLibSQL({ url: tursoUrl, authToken: tursoToken });
+  const prisma = new PrismaClient({ adapter });
   try {
     const teams = await prisma.team.findMany({ select: { id: true, crestUrl: true } });
     let updated = 0;
