@@ -3,10 +3,9 @@
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 
 import { trpc } from "@/lib/trpc/client";
-import { createLeagueSchema, CreateLeagueInput } from "./league.schema";
+import { createLeagueSchema, CreateLeagueInput, UpdateLeagueInput } from "./league.schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -56,8 +55,8 @@ export default function LeagueForm({ initialData }: { initialData?: League | nul
 
   function onSubmit(data: CreateLeagueInput) {
     if (isEditMode && initialData) {
-      // @ts-ignore update shape
-      updateLeague.mutate({ id: initialData.id, ...data });
+      const payload: UpdateLeagueInput = { id: initialData.id, ...data };
+      updateLeague.mutate(payload);
     } else {
       createLeague.mutate(data);
     }

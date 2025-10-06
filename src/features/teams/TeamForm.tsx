@@ -3,11 +3,10 @@
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useMemo, useState } from "react";
 
 import { trpc } from "@/lib/trpc/client";
-import { createTeamSchema, CreateTeamInput } from "./team.schema";
+import { createTeamSchema, CreateTeamInput, UpdateTeamInput } from "./team.schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -131,8 +130,8 @@ export default function TeamForm({ initialData }: { initialData?: TeamWithLeague
 
   function onSubmit(data: CreateTeamInput) {
     if (isEditMode && initialData) {
-      // @ts-ignore - server expects update shape; CreateTeamInput is compatible for our fields
-      updateTeam.mutate({ id: initialData.id, ...data });
+      const payload: UpdateTeamInput = { id: initialData.id, ...data };
+      updateTeam.mutate(payload);
     } else {
       createTeam.mutate(data);
     }

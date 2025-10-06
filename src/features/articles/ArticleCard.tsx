@@ -1,19 +1,27 @@
 import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 // removed author avatar display
-import { inferRouterOutputs } from "@trpc/server";
-import { appRouter } from "@/lib/trpc/root";
 import Image from "next/image";
 
-type Article = inferRouterOutputs<typeof appRouter>["articles"]["getPublished"]["articles"][0] | inferRouterOutputs<typeof appRouter>["articles"]["getRecent"][0];
+// Minimal type needed by the card to avoid leaking TRPC output types
+type ArticleCardData = {
+  id: string;
+  title: string;
+  slug: string;
+  publishedAt?: string | Date | null;
+  featuredImage?: { url: string; altText?: string | null } | null;
+  // raw HTML string or structured content
+  content?: unknown;
+};
 
 interface ArticleCardProps {
-  article: Article;
+  article: ArticleCardData;
 }
 
-function extractFirstImageSrc(article: any): string | undefined {
+function extractFirstImageSrc(article: ArticleCardData): string | undefined {
   try {
-    const html = String(article?.content || "");
+    const content = (article as { content?: unknown }).content;
+    const html = typeof content === "string" ? content : content ? JSON.stringify(content) : "";
     const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
     return match?.[1];
   } catch {
@@ -22,7 +30,7 @@ function extractFirstImageSrc(article: any): string | undefined {
 }
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
-  const { title, slug, featuredImage, publishedAt } = article as any;
+  const { title, slug, featuredImage, publishedAt } = article;
 
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
@@ -36,7 +44,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         <CardHeader className="p-0">
           <div className="relative h-48 w-full">
             <Image
-              src={(featuredImage?.url) || extractFirstImageSrc(article as any) || "/placeholder.svg"}
+              src={(featuredImage?.url) || extractFirstImageSrc(article) || "/placeholder.svg"}
               alt={featuredImage?.altText || title}
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
